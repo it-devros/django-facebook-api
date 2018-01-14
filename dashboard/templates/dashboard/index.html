@@ -1,0 +1,128 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+	<h1>{{ account.company }}</h1>
+
+	<div class="card" style="width: 18rem;">
+	  <div class="card-body">
+	    <h5 class="card-title">Total daily budget: $1000</h5>
+	    <p class="card-text">Avg total daily spend: $45</p>
+	  </div>
+	</div>
+
+	<div id="myfirstchart" style="height: 250px;"></div>
+
+	<script>
+
+	
+
+	new Morris.Line({
+
+	  dailySpend : '{{ daily.spend }}', 
+	  // ID of the element in which to draw the chart.
+	  element: 'myfirstchart',
+	  // Chart data records -- each entry in this array corresponds to a point on
+	  // the chart.
+	  data: [
+	    { date: '2017-01-09', value: ${dailySpend} },
+	    { date: '2017-01-08', value: ${dailySpend} },
+	    { date: '2017-01-07', value: ${dailySpend} },
+	    { date: '2017-01-06', value: ${dailySpend} },
+	    { date: '2017-01-05', value: ${dailySpend} }
+	  ],
+	  // The name of the data record attribute that contains x-values.
+	  xkey: 'date',
+	  xLabels: "day",
+	  // A list of names of data record attributes that contain y-values.
+	  ykeys: ['value'],
+	  // Labels for the ykeys -- will be displayed when you hover over the
+	  // chart.
+	  labels: ['Spend'],
+
+	  goals: ['10'],
+	  resize: true
+
+	});
+	</script>
+
+	<br /><br />
+
+	{{ fb_data }}
+
+
+	<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+	    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+	    <span></span> <b class="caret"></b>
+	</div>
+
+	<script type="text/javascript">
+	$(function() {
+
+	    var start = moment().subtract(29, 'days');
+	    var end = moment();
+
+	    function cb(start, end) {
+	        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+	        //programmatic your code here
+	    }
+
+	    $('#reportrange').daterangepicker({
+	        startDate: start,
+	        endDate: end,
+	        ranges: {
+	           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+	           'Last 14 Days': [moment().subtract(13, 'days'), moment()],
+	           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+	           'This Month': [moment().startOf('month'), moment().endOf('month')],
+	           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+	        }
+	    }, cb);
+
+	    cb(start, end);
+	    
+	});
+	</script>
+
+	<div class="table-responsive">
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th>Date</th>
+	      <th>Campaign</th>
+	      <th>Spend</th>
+	      <th>Clicks</th>
+	      <th>Impressions</th>
+	      <th>CTR</th>
+	      <th>CPC</th>
+	      <th>CPM</th>
+	      <th>Conv1</th>
+	      <th>Conv2</th>
+	      <th>Conv3</th>
+	      <th>Cost/Conv3</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{% for daily in all_performance %}
+	    <tr>
+	      <td>{{ daily.date }}</td>
+	      <td>{{ daily.campaign}}</td>
+	      <td>${{ daily.spend}}</td>
+	      <td>{{ daily.clicks}}</td>
+	      <td>{{ daily.impressions}}</td>
+	      <td>{{ daily.ctr }}%</td>
+	      <td>${{ daily.cpc }}</td>
+	      <td>${{ daily.cpm }}</td>
+	      <td>{{ daily.conv1 }}</td>
+	      <td>{{ daily.conv2 }}</td>
+	      <td>{{ daily.conv3 }}</td>
+	      <td>${{ daily.convtotal }}</td>
+	    </tr>
+	    {% endfor %}
+	   </tbody>
+	</table>
+	</div>
+
+{% endblock %}

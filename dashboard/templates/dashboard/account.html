@@ -1,0 +1,13 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+
+	<p> Hello {{ user.get_username }} - {{ user.account.adaccounts }}<br />
+
+	<h1>{{ account.company }}</h1>
+	
+
+{% endblock %}
