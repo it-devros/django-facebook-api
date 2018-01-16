@@ -15,6 +15,7 @@
 
 	<div id="myfirstchart" style="height: 250px;"></div>
 
+
 	<script>
 
 	
@@ -55,7 +56,7 @@
 
 	<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
 	    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
-	    <span></span> <b class="caret"></b>
+	    <span></span><b class="caret"></b>
 	</div>
 
 	<script type="text/javascript">
@@ -81,6 +82,28 @@
 	        }
 	    }, cb);
 
+
+	    $('#reportrange').on('apply.daterangepicker', function(ev, picker){
+	    	var startDate = picker.startDate.format('YYYY-MM-DD');
+	    	var endDate = picker.endDate.format('YYYY-MM-DD');
+	    	console.log(startDate,"+++++++++", endDate);
+	    	var api_url = "{% url 'index' %}" + "filterBydate/" + startDate + "/" + endDate;
+			$.ajax({
+				url: api_url,
+				method: "GET",
+				success: function(res) {
+					$("#response_data").empty();
+					$("#response_data").append(res);
+				},
+				error: function(error){
+					console.log(error);
+					$("#response_data").empty();
+					$("#response_data").append("<tr><td colspan='12' class='text-info'>Sorry. Some errors detected.</td></tr>");
+				}
+			});	    	
+
+	    });
+
 	    cb(start, end);
 	    
 	});
@@ -104,7 +127,7 @@
 	      <th>Cost/Conv3</th>
 	    </tr>
 	  </thead>
-	  <tbody>
+	  <tbody id="response_data">
 	  	{% for daily in all_performance %}
 	    <tr>
 	      <td>{{ daily.date }}</td>

@@ -12,6 +12,8 @@ from facebookads.adobjects.adaccount import AdAccount
 from facebookads.adobjects.adsinsights import AdsInsights
 from facebookads.api import FacebookAdsApi
 
+from datetime import datetime
+
 # Create your views here.
 
 class IndexView(LoginRequiredMixin, generic.ListView): 
@@ -62,3 +64,27 @@ class HomeView(TemplateView):
 class AccountView(TemplateView):
 	model = Adaccount
 	template_name = 'dashboard/account.html'
+
+
+# filtering the performance by date
+class FilterByDate(generic.ListView):
+	model = Performance
+	context_object_name = 'filtered_performance'
+	template_name = 'dashboard/filter.html'
+
+	def get_queryset(self):
+		user = self.request.user
+		startDate = self.kwargs['startDate']
+		endDate = self.kwargs['endDate']
+		start_Date = datetime.now()
+		end_Date = datetime.now()
+		try:
+			start_Date = datetime.strptime(startDate, '%Y-%m-%d')
+			end_Date = datetime.strptime(endDate, '%Y-%m-%d')
+			start_Date = datetime.date(start_Date)
+			end_Date = datetime.date(end_Date)
+		except Exception as e:
+			print "Date validation error"
+			return e
+		adaccount_list = Account.objects.filter(user=user).values_list('adaccounts', flat=True)
+		return Performance.objects.filter(adaccount__in=adaccount_list, date__range=(start_Date, end_Date))
