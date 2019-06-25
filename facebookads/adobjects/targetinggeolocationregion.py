@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class TargetingGeoLocationRegion(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(TargetingGeoLocationRegion, self).__init__()
-        self._isTargetingGeoLocationRegion = True
-        self._api = api
+  def __init__(self, api=None):
+    super(TargetingGeoLocationRegion, self).__init__()
+    self._isTargetingGeoLocationRegion = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        country = 'country'
-        key = 'key'
-        name = 'name'
+  class Field(AbstractObject.Field):
+    country = 'country'
+    key = 'key'
+    name = 'name'
 
-    _field_types = {
-        'country': 'string',
-        'key': 'string',
-        'name': 'string',
-    }
+  _field_types = {
+    'country': 'string',
+    'key': 'string',
+    'name': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

@@ -33,100 +33,100 @@ pull request for this class.
 """
 
 class AdPlacePageSet(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isAdPlacePageSet = True
-        super(AdPlacePageSet, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isAdPlacePageSet = True
+    super(AdPlacePageSet, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        account_id = 'account_id'
-        id = 'id'
-        location_types = 'location_types'
-        name = 'name'
-        pages_count = 'pages_count'
-        parent_page = 'parent_page'
+  class Field(AbstractObject.Field):
+    account_id = 'account_id'
+    id = 'id'
+    location_types = 'location_types'
+    name = 'name'
+    pages_count = 'pages_count'
+    parent_page = 'parent_page'
 
-    class LocationTypes:
-        recent = 'recent'
-        home = 'home'
+  class LocationTypes:
+    recent = 'recent'
+    home = 'home'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'ad_place_page_sets'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'ad_place_page_sets'
 
-    def api_create(self, parent_id, fields=None, params=None, batch=None, pending=False):
-        from facebookads.adobjects.adaccount import AdAccount
-        return AdAccount(api=self._api, fbid=parent_id).create_ad_place_page_set(fields, params, batch, pending)
+  def api_create(self, parent_id, fields=None, params=None, batch=None, pending=False):
+    from facebookads.adobjects.adaccount import AdAccount
+    return AdAccount(api=self._api, fbid=parent_id).create_ad_place_page_set(fields, params, batch, pending)
 
-    def api_get(self, fields=None, params=None, batch=None, pending=False):
-        param_types = {
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='GET',
-            endpoint='/',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AdPlacePageSet,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def api_update(self, fields=None, params=None, batch=None, pending=False):
-        param_types = {
-            'name': 'string',
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='POST',
-            endpoint='/',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AdPlacePageSet,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    _field_types = {
-        'account_id': 'string',
-        'id': 'string',
-        'location_types': 'list<string>',
-        'name': 'string',
-        'pages_count': 'int',
-        'parent_page': 'Object',
+  def api_get(self, fields=None, params=None, batch=None, pending=False):
+    param_types = {
     }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='GET',
+      endpoint='/',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=AdPlacePageSet,
+      api_type='NODE',
+      response_parser=ObjectParser(reuse_object=self),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['LocationTypes'] = AdPlacePageSet.LocationTypes.__dict__.values()
-        return field_enum_info
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  def api_update(self, fields=None, params=None, batch=None, pending=False):
+    param_types = {
+      'name': 'string',
+    }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='POST',
+      endpoint='/',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=AdPlacePageSet,
+      api_type='NODE',
+      response_parser=ObjectParser(reuse_object=self),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
+
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  _field_types = {
+    'account_id': 'string',
+    'id': 'string',
+    'location_types': 'list<string>',
+    'name': 'string',
+    'pages_count': 'int',
+    'parent_page': 'Object',
+  }
+
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['LocationTypes'] = AdPlacePageSet.LocationTypes.__dict__.values()
+    return field_enum_info

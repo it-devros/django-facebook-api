@@ -29,38 +29,38 @@ pull request for this class.
 """
 
 class AdAccountAdRulesHistory(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdAccountAdRulesHistory, self).__init__()
-        self._isAdAccountAdRulesHistory = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdAccountAdRulesHistory, self).__init__()
+    self._isAdAccountAdRulesHistory = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        evaluation_spec = 'evaluation_spec'
-        exception_code = 'exception_code'
-        exception_message = 'exception_message'
-        execution_spec = 'execution_spec'
-        is_manual = 'is_manual'
-        results = 'results'
-        rule_id = 'rule_id'
-        schedule_spec = 'schedule_spec'
-        timestamp = 'timestamp'
+  class Field(AbstractObject.Field):
+    evaluation_spec = 'evaluation_spec'
+    exception_code = 'exception_code'
+    exception_message = 'exception_message'
+    execution_spec = 'execution_spec'
+    is_manual = 'is_manual'
+    results = 'results'
+    rule_id = 'rule_id'
+    schedule_spec = 'schedule_spec'
+    timestamp = 'timestamp'
 
-    _field_types = {
-        'evaluation_spec': 'AdRuleEvaluationSpec',
-        'exception_code': 'int',
-        'exception_message': 'string',
-        'execution_spec': 'AdRuleExecutionSpec',
-        'is_manual': 'bool',
-        'results': 'list<AdRuleHistoryResult>',
-        'rule_id': 'int',
-        'schedule_spec': 'AdRuleScheduleSpec',
-        'timestamp': 'datetime',
-    }
+  _field_types = {
+    'evaluation_spec': 'AdRuleEvaluationSpec',
+    'exception_code': 'int',
+    'exception_message': 'string',
+    'execution_spec': 'AdRuleExecutionSpec',
+    'is_manual': 'bool',
+    'results': 'list<AdRuleHistoryResult>',
+    'rule_id': 'int',
+    'schedule_spec': 'AdRuleScheduleSpec',
+    'timestamp': 'datetime',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

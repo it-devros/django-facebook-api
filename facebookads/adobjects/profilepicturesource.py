@@ -29,44 +29,44 @@ pull request for this class.
 """
 
 class ProfilePictureSource(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(ProfilePictureSource, self).__init__()
-        self._isProfilePictureSource = True
-        self._api = api
+  def __init__(self, api=None):
+    super(ProfilePictureSource, self).__init__()
+    self._isProfilePictureSource = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        bottom = 'bottom'
-        height = 'height'
-        is_silhouette = 'is_silhouette'
-        left = 'left'
-        right = 'right'
-        top = 'top'
-        url = 'url'
-        width = 'width'
+  class Field(AbstractObject.Field):
+    bottom = 'bottom'
+    height = 'height'
+    is_silhouette = 'is_silhouette'
+    left = 'left'
+    right = 'right'
+    top = 'top'
+    url = 'url'
+    width = 'width'
 
-    class Type:
-        small = 'small'
-        normal = 'normal'
-        album = 'album'
-        large = 'large'
-        square = 'square'
+  class Type:
+    small = 'small'
+    normal = 'normal'
+    album = 'album'
+    large = 'large'
+    square = 'square'
 
-    _field_types = {
-        'bottom': 'unsigned int',
-        'height': 'unsigned int',
-        'is_silhouette': 'bool',
-        'left': 'unsigned int',
-        'right': 'unsigned int',
-        'top': 'unsigned int',
-        'url': 'string',
-        'width': 'unsigned int',
-    }
+  _field_types = {
+    'bottom': 'unsigned int',
+    'height': 'unsigned int',
+    'is_silhouette': 'bool',
+    'left': 'unsigned int',
+    'right': 'unsigned int',
+    'top': 'unsigned int',
+    'url': 'string',
+    'width': 'unsigned int',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['Type'] = ProfilePictureSource.Type.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['Type'] = ProfilePictureSource.Type.__dict__.values()
+    return field_enum_info

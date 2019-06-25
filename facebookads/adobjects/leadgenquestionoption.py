@@ -29,24 +29,24 @@ pull request for this class.
 """
 
 class LeadGenQuestionOption(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(LeadGenQuestionOption, self).__init__()
-        self._isLeadGenQuestionOption = True
-        self._api = api
+  def __init__(self, api=None):
+    super(LeadGenQuestionOption, self).__init__()
+    self._isLeadGenQuestionOption = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        key = 'key'
-        value = 'value'
+  class Field(AbstractObject.Field):
+    key = 'key'
+    value = 'value'
 
-    _field_types = {
-        'key': 'string',
-        'value': 'string',
-    }
+  _field_types = {
+    'key': 'string',
+    'value': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

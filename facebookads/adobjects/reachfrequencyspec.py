@@ -29,34 +29,34 @@ pull request for this class.
 """
 
 class ReachFrequencySpec(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(ReachFrequencySpec, self).__init__()
-        self._isReachFrequencySpec = True
-        self._api = api
+  def __init__(self, api=None):
+    super(ReachFrequencySpec, self).__init__()
+    self._isReachFrequencySpec = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        countries = 'countries'
-        default_creation_data = 'default_creation_data'
-        max_campaign_duration = 'max_campaign_duration'
-        max_days_to_finish = 'max_days_to_finish'
-        max_pause_without_prediction_rerun = 'max_pause_without_prediction_rerun'
-        min_campaign_duration = 'min_campaign_duration'
-        min_reach_limits = 'min_reach_limits'
+  class Field(AbstractObject.Field):
+    countries = 'countries'
+    default_creation_data = 'default_creation_data'
+    max_campaign_duration = 'max_campaign_duration'
+    max_days_to_finish = 'max_days_to_finish'
+    max_pause_without_prediction_rerun = 'max_pause_without_prediction_rerun'
+    min_campaign_duration = 'min_campaign_duration'
+    min_reach_limits = 'min_reach_limits'
 
-    _field_types = {
-        'countries': 'list<string>',
-        'default_creation_data': 'Object',
-        'max_campaign_duration': 'Object',
-        'max_days_to_finish': 'Object',
-        'max_pause_without_prediction_rerun': 'Object',
-        'min_campaign_duration': 'Object',
-        'min_reach_limits': 'Object',
-    }
+  _field_types = {
+    'countries': 'list<string>',
+    'default_creation_data': 'Object',
+    'max_campaign_duration': 'Object',
+    'max_days_to_finish': 'Object',
+    'max_pause_without_prediction_rerun': 'Object',
+    'min_campaign_duration': 'Object',
+    'min_reach_limits': 'Object',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

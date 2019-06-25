@@ -22,49 +22,49 @@ from facebookads.adobjects.event import Event
 from facebookads.adobjects.leadgenform import LeadgenForm
 from facebookads.adobjects.abstractcrudobject import AbstractCrudObject
 from facebookads.mixins import (
-    CannotCreate,
-    CannotDelete,
-    CannotUpdate,
+  CannotCreate,
+  CannotDelete,
+  CannotUpdate,
 )
 
 
 class Page(CannotCreate, CannotDelete, CannotUpdate, AbstractCrudObject):
 
-    class Field(object):
-        id = 'id'
-        name = 'name'
-        category = 'category'
-        access_token = 'access_token'
-        location = 'location'
-        website = 'website'
-        phone = 'phone'
+  class Field(object):
+    id = 'id'
+    name = 'name'
+    category = 'category'
+    access_token = 'access_token'
+    location = 'location'
+    website = 'website'
+    phone = 'phone'
 
-    class Location(object):
-        city = 'city'
-        country = 'country'
-        latitude = 'latitude'
-        longitude = 'longitude'
-        street = 'street'
-        zip = 'zip'
+  class Location(object):
+    city = 'city'
+    country = 'country'
+    latitude = 'latitude'
+    longitude = 'longitude'
+    street = 'street'
+    zip = 'zip'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'accounts'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'accounts'
 
-    def get_leadgen_forms(self, fields=None, params=None):
-        """
-        Returns all leadgen forms on the page
-        """
-        return self.iterate_edge(
-            LeadgenForm,
-            fields,
-            params,
-            endpoint='leadgen_forms',
-        )
+  def get_leadgen_forms(self, fields=None, params=None):
+    """
+    Returns all leadgen forms on the page
+    """
+    return self.iterate_edge(
+      LeadgenForm,
+      fields,
+      params,
+      endpoint='leadgen_forms',
+    )
 
-    def get_events(self, fields=None, params=None):
-        """
-        Returns all events on the page
-        """
-        return self.iterate_edge(Event, fields, params, endpoint='events')
+  def get_events(self, fields=None, params=None):
+    """
+    Returns all events on the page
+    """
+    return self.iterate_edge(Event, fields, params, endpoint='events')

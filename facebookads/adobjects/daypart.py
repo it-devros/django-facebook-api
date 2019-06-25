@@ -29,28 +29,28 @@ pull request for this class.
 """
 
 class DayPart(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(DayPart, self).__init__()
-        self._isDayPart = True
-        self._api = api
+  def __init__(self, api=None):
+    super(DayPart, self).__init__()
+    self._isDayPart = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        days = 'days'
-        end_minute = 'end_minute'
-        start_minute = 'start_minute'
-        timezone_type = 'timezone_type'
+  class Field(AbstractObject.Field):
+    days = 'days'
+    end_minute = 'end_minute'
+    start_minute = 'start_minute'
+    timezone_type = 'timezone_type'
 
-    _field_types = {
-        'days': 'list<int>',
-        'end_minute': 'int',
-        'start_minute': 'int',
-        'timezone_type': 'string',
-    }
+  _field_types = {
+    'days': 'list<int>',
+    'end_minute': 'int',
+    'start_minute': 'int',
+    'timezone_type': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

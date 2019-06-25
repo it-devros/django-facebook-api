@@ -33,23 +33,23 @@ pull request for this class.
 """
 
 class BusinessPageRequest(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isBusinessPageRequest = True
-        super(BusinessPageRequest, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isBusinessPageRequest = True
+    super(BusinessPageRequest, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        id = 'id'
-        page = 'page'
+  class Field(AbstractObject.Field):
+    id = 'id'
+    page = 'page'
 
-    _field_types = {
-        'id': 'string',
-        'page': 'Object',
-    }
+  _field_types = {
+    'id': 'string',
+    'page': 'Object',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

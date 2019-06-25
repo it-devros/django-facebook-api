@@ -1,20 +1,20 @@
 {% for daily in filtered_performance %}
-	<tr>
-	  <td>{{ daily.date }}</td>
-	  <td>{{ daily.campaign}}</td>
-	  <td>${{ daily.spend}}</td>
-	  <td>{{ daily.clicks}}</td>
-	  <td>{{ daily.impressions}}</td>
-	  <td>{{ daily.ctr }}%</td>
-	  <td>${{ daily.cpc }}</td>
-	  <td>${{ daily.cpm }}</td>
-	  <td>{{ daily.conv1 }}</td>
-	  <td>{{ daily.conv2 }}</td>
-	  <td>{{ daily.conv3 }}</td>
-	  <td>${{ daily.convtotal }}</td>
-	</tr>
+  <tr>
+    <td>{{ daily.date }}</td>
+    <td>{{ daily.campaign}}</td>
+    <td>${{ daily.spend}}</td>
+    <td>{{ daily.clicks}}</td>
+    <td>{{ daily.impressions}}</td>
+    <td>{{ daily.ctr }}%</td>
+    <td>${{ daily.cpc }}</td>
+    <td>${{ daily.cpm }}</td>
+    <td>{{ daily.conv1 }}</td>
+    <td>{{ daily.conv2 }}</td>
+    <td>{{ daily.conv3 }}</td>
+    <td>${{ daily.convtotal }}</td>
+  </tr>
 {% empty %}
-	<tr>
-		<td colspan="12" class="text-info">No Data</td>
-	</tr>
+  <tr>
+    <td colspan="12" class="text-info">No Data</td>
+  </tr>
 {% endfor %}

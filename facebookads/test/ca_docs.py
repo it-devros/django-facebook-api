@@ -22,7 +22,7 @@
 Unit tests for the Python Facebook Ads API SDK.
 
 How to run:
-    python -m facebookads.test.ca_docs
+  python -m facebookads.test.ca_docs
 '''
 
 import os
@@ -33,68 +33,68 @@ from .docs_utils import *
 
 class CustomAudienceDocsTestCase(DocsTestCase):
 
-    def setUp(self):
-        ca = self.create_custom_audience()
-        DocsDataStore.set('ca_id', ca.get_id_assured())
+  def setUp(self):
+    ca = self.create_custom_audience()
+    DocsDataStore.set('ca_id', ca.get_id_assured())
 
-    def test_add_users(self):
-        custom_audience = CustomAudience(DocsDataStore.get('ca_id'))
-        response = custom_audience.add_users(
-            schema=CustomAudience.Schema.email_hash,
-            users=[
-                'joe@example.com',
-            ]
-        )
-        self.store_response(response)
+  def test_add_users(self):
+    custom_audience = CustomAudience(DocsDataStore.get('ca_id'))
+    response = custom_audience.add_users(
+      schema=CustomAudience.Schema.email_hash,
+      users=[
+        'joe@example.com',
+      ]
+    )
+    self.store_response(response)
 
-    def test_remove_users(self):
-        custom_audience = CustomAudience(DocsDataStore.get('ca_id'))
-        response = custom_audience.remove_users(
-            schema=CustomAudience.Schema.email_hash,
-            users=[
-                'joe@example.com',
-            ]
-        )
-        self.store_response(response)
+  def test_remove_users(self):
+    custom_audience = CustomAudience(DocsDataStore.get('ca_id'))
+    response = custom_audience.remove_users(
+      schema=CustomAudience.Schema.email_hash,
+      users=[
+        'joe@example.com',
+      ]
+    )
+    self.store_response(response)
 
-    def test_format_params(self):
-        formatted_params = CustomAudience.format_params(
-            schema=CustomAudience.Schema.email_hash,
-            users=['joe@example.com'],
-        )
-        self.store_response(formatted_params)
+  def test_format_params(self):
+    formatted_params = CustomAudience.format_params(
+      schema=CustomAudience.Schema.email_hash,
+      users=['joe@example.com'],
+    )
+    self.store_response(formatted_params)
 
 
 if __name__ == '__main__':
-    handle = open(DocsDataStore.get('filename'), 'w')
-    handle.write('')
-    handle.close()
+  handle = open(DocsDataStore.get('filename'), 'w')
+  handle.write('')
+  handle.close()
 
-    try:
-        config_file = open('./autogen_docs_config.json')
-    except IOError:
-        print("No config file found, skipping docs tests")
-        sys.exit()
-    config = json.load(config_file)
-    config_file.close()
+  try:
+    config_file = open('./autogen_docs_config.json')
+  except IOError:
+    print("No config file found, skipping docs tests")
+    sys.exit()
+  config = json.load(config_file)
+  config_file.close()
 
-    FacebookAdsApi.init(
-        config['app_id'],
-        config['app_secret'],
-        config['access_token'],
-        config['adaccount_id'],
-    )
+  FacebookAdsApi.init(
+    config['app_id'],
+    config['app_secret'],
+    config['access_token'],
+    config['adaccount_id'],
+  )
 
-    DocsDataStore.set('adaccount_id', config['adaccount_id'])
-    DocsDataStore.set('adaccount_id_int', config['adaccount_id_int'])
-    DocsDataStore.set('business_id', config['business_id'])
-    DocsDataStore.set('ca_id', config['ca_id'])
-    DocsDataStore.set('dpa_catalog_id', config['dpa_catalog_id'])
-    DocsDataStore.set('dpa_set_id', config['dpa_set_id'])
-    DocsDataStore.set('dpa_feed_id', config['dpa_feed_id'])
-    DocsDataStore.set('dpa_upload_id', config['dpa_upload_id'])
-    DocsDataStore.set('as_user_id', config['as_user_id'])
-    DocsDataStore.set('page_id', config['page_id'])
-    DocsDataStore.set('pixel_id', config['pixel_id'])
+  DocsDataStore.set('adaccount_id', config['adaccount_id'])
+  DocsDataStore.set('adaccount_id_int', config['adaccount_id_int'])
+  DocsDataStore.set('business_id', config['business_id'])
+  DocsDataStore.set('ca_id', config['ca_id'])
+  DocsDataStore.set('dpa_catalog_id', config['dpa_catalog_id'])
+  DocsDataStore.set('dpa_set_id', config['dpa_set_id'])
+  DocsDataStore.set('dpa_feed_id', config['dpa_feed_id'])
+  DocsDataStore.set('dpa_upload_id', config['dpa_upload_id'])
+  DocsDataStore.set('as_user_id', config['as_user_id'])
+  DocsDataStore.set('page_id', config['page_id'])
+  DocsDataStore.set('pixel_id', config['pixel_id'])
 
-    unittest.main()
+  unittest.main()

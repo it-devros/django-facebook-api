@@ -29,58 +29,58 @@ pull request for this class.
 """
 
 class AdsActionStats(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdsActionStats, self).__init__()
-        self._isAdsActionStats = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdsActionStats, self).__init__()
+    self._isAdsActionStats = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        field_1d_click = '1d_click'
-        field_1d_view = '1d_view'
-        field_28d_click = '28d_click'
-        field_28d_view = '28d_view'
-        field_7d_click = '7d_click'
-        field_7d_view = '7d_view'
-        action_canvas_component_name = 'action_canvas_component_name'
-        action_carousel_card_id = 'action_carousel_card_id'
-        action_carousel_card_name = 'action_carousel_card_name'
-        action_destination = 'action_destination'
-        action_device = 'action_device'
-        action_link_click_destination = 'action_link_click_destination'
-        action_reaction = 'action_reaction'
-        action_target_id = 'action_target_id'
-        action_type = 'action_type'
-        action_video_sound = 'action_video_sound'
-        action_video_type = 'action_video_type'
-        inline = 'inline'
-        value = 'value'
+  class Field(AbstractObject.Field):
+    field_1d_click = '1d_click'
+    field_1d_view = '1d_view'
+    field_28d_click = '28d_click'
+    field_28d_view = '28d_view'
+    field_7d_click = '7d_click'
+    field_7d_view = '7d_view'
+    action_canvas_component_name = 'action_canvas_component_name'
+    action_carousel_card_id = 'action_carousel_card_id'
+    action_carousel_card_name = 'action_carousel_card_name'
+    action_destination = 'action_destination'
+    action_device = 'action_device'
+    action_link_click_destination = 'action_link_click_destination'
+    action_reaction = 'action_reaction'
+    action_target_id = 'action_target_id'
+    action_type = 'action_type'
+    action_video_sound = 'action_video_sound'
+    action_video_type = 'action_video_type'
+    inline = 'inline'
+    value = 'value'
 
-    _field_types = {
-        '1d_click': 'string',
-        '1d_view': 'string',
-        '28d_click': 'string',
-        '28d_view': 'string',
-        '7d_click': 'string',
-        '7d_view': 'string',
-        'action_canvas_component_name': 'string',
-        'action_carousel_card_id': 'string',
-        'action_carousel_card_name': 'string',
-        'action_destination': 'string',
-        'action_device': 'string',
-        'action_link_click_destination': 'string',
-        'action_reaction': 'string',
-        'action_target_id': 'string',
-        'action_type': 'string',
-        'action_video_sound': 'string',
-        'action_video_type': 'string',
-        'inline': 'string',
-        'value': 'string',
-    }
+  _field_types = {
+    '1d_click': 'string',
+    '1d_view': 'string',
+    '28d_click': 'string',
+    '28d_view': 'string',
+    '7d_click': 'string',
+    '7d_view': 'string',
+    'action_canvas_component_name': 'string',
+    'action_carousel_card_id': 'string',
+    'action_carousel_card_name': 'string',
+    'action_destination': 'string',
+    'action_device': 'string',
+    'action_link_click_destination': 'string',
+    'action_reaction': 'string',
+    'action_target_id': 'string',
+    'action_type': 'string',
+    'action_video_sound': 'string',
+    'action_video_type': 'string',
+    'inline': 'string',
+    'value': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

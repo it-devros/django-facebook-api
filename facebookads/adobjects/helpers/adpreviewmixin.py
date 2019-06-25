@@ -19,6 +19,6 @@
 # DEALINGS IN THE SOFTWARE.
 
 class AdPreviewMixin:
-    def get_html(self):
-        """Returns the preview html."""
-        return self[self.Field.body]
+  def get_html(self):
+    """Returns the preview html."""
+    return self[self.Field.body]

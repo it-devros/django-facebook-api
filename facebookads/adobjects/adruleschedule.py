@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class AdRuleSchedule(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdRuleSchedule, self).__init__()
-        self._isAdRuleSchedule = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdRuleSchedule, self).__init__()
+    self._isAdRuleSchedule = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        days = 'days'
-        end_minute = 'end_minute'
-        start_minute = 'start_minute'
+  class Field(AbstractObject.Field):
+    days = 'days'
+    end_minute = 'end_minute'
+    start_minute = 'start_minute'
 
-    _field_types = {
-        'days': 'list<int>',
-        'end_minute': 'int',
-        'start_minute': 'int',
-    }
+  _field_types = {
+    'days': 'list<int>',
+    'end_minute': 'int',
+    'start_minute': 'int',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

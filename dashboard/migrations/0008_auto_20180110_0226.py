@@ -7,19 +7,19 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('dashboard', '0007_account_adaccounts'),
-    ]
+  dependencies = [
+    ('dashboard', '0007_account_adaccounts'),
+  ]
 
-    operations = [
-        migrations.AddField(
-            model_name='performance',
-            name='spend',
-            field=models.FloatField(blank=True, null=True),
-        ),
-        migrations.AlterField(
-            model_name='performance',
-            name='date',
-            field=models.DateField(auto_now_add=True),
-        ),
-    ]
+  operations = [
+    migrations.AddField(
+      model_name='performance',
+      name='spend',
+      field=models.FloatField(blank=True, null=True),
+    ),
+    migrations.AlterField(
+      model_name='performance',
+      name='date',
+      field=models.DateField(auto_now_add=True),
+    ),
+  ]

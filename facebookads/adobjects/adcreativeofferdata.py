@@ -29,36 +29,36 @@ pull request for this class.
 """
 
 class AdCreativeOfferData(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativeOfferData, self).__init__()
-        self._isAdCreativeOfferData = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativeOfferData, self).__init__()
+    self._isAdCreativeOfferData = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        claim_limit = 'claim_limit'
-        coupon_type = 'coupon_type'
-        expiration_time = 'expiration_time'
-        image_url = 'image_url'
-        message = 'message'
-        redemption_link = 'redemption_link'
-        reminder_time = 'reminder_time'
-        title = 'title'
+  class Field(AbstractObject.Field):
+    claim_limit = 'claim_limit'
+    coupon_type = 'coupon_type'
+    expiration_time = 'expiration_time'
+    image_url = 'image_url'
+    message = 'message'
+    redemption_link = 'redemption_link'
+    reminder_time = 'reminder_time'
+    title = 'title'
 
-    _field_types = {
-        'claim_limit': 'int',
-        'coupon_type': 'string',
-        'expiration_time': 'string',
-        'image_url': 'string',
-        'message': 'string',
-        'redemption_link': 'string',
-        'reminder_time': 'string',
-        'title': 'string',
-    }
+  _field_types = {
+    'claim_limit': 'int',
+    'coupon_type': 'string',
+    'expiration_time': 'string',
+    'image_url': 'string',
+    'message': 'string',
+    'redemption_link': 'string',
+    'reminder_time': 'string',
+    'title': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

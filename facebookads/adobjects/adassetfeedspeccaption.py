@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class AdAssetFeedSpecCaption(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdAssetFeedSpecCaption, self).__init__()
-        self._isAdAssetFeedSpecCaption = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdAssetFeedSpecCaption, self).__init__()
+    self._isAdAssetFeedSpecCaption = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        adlabels = 'adlabels'
-        text = 'text'
-        url_tags = 'url_tags'
+  class Field(AbstractObject.Field):
+    adlabels = 'adlabels'
+    text = 'text'
+    url_tags = 'url_tags'
 
-    _field_types = {
-        'adlabels': 'list<AdAssetFeedSpecAssetLabel>',
-        'text': 'string',
-        'url_tags': 'string',
-    }
+  _field_types = {
+    'adlabels': 'list<AdAssetFeedSpecAssetLabel>',
+    'text': 'string',
+    'url_tags': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

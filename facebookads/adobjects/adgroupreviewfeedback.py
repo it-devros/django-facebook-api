@@ -29,24 +29,24 @@ pull request for this class.
 """
 
 class AdgroupReviewFeedback(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdgroupReviewFeedback, self).__init__()
-        self._isAdgroupReviewFeedback = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdgroupReviewFeedback, self).__init__()
+    self._isAdgroupReviewFeedback = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        field_global = 'global'
-        placement_specific = 'placement_specific'
+  class Field(AbstractObject.Field):
+    field_global = 'global'
+    placement_specific = 'placement_specific'
 
-    _field_types = {
-        'global': 'map<string, string>',
-        'placement_specific': 'AdgroupPlacementSpecificReviewFeedback',
-    }
+  _field_types = {
+    'global': 'map<string, string>',
+    'placement_specific': 'AdgroupPlacementSpecificReviewFeedback',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

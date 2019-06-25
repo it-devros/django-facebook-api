@@ -7,11 +7,11 @@
 Website homepage
 
 {% if user.is_authenticated %}
-	<p> Hello {{ user.get_username }}</p>
-	<p><a href="/logout">Log out</a></p>
+  <p> Hello {{ user.get_username }}</p>
+  <p><a href="/logout">Log out</a></p>
 {% else %}
-	<p>Welcome to the homepage</p>
-	<p><a href="/login">Login</a></p>
+  <p>Welcome to the homepage</p>
+  <p><a href="/login">Login</a></p>
 {% endif %} 
 
 {% endblock %}

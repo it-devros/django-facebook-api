@@ -29,32 +29,32 @@ pull request for this class.
 """
 
 class AdCreativePlaceData(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativePlaceData, self).__init__()
-        self._isAdCreativePlaceData = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativePlaceData, self).__init__()
+    self._isAdCreativePlaceData = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        address_string = 'address_string'
-        label = 'label'
-        latitude = 'latitude'
-        location_source_id = 'location_source_id'
-        longitude = 'longitude'
-        type = 'type'
+  class Field(AbstractObject.Field):
+    address_string = 'address_string'
+    label = 'label'
+    latitude = 'latitude'
+    location_source_id = 'location_source_id'
+    longitude = 'longitude'
+    type = 'type'
 
-    _field_types = {
-        'address_string': 'string',
-        'label': 'string',
-        'latitude': 'float',
-        'location_source_id': 'string',
-        'longitude': 'float',
-        'type': 'string',
-    }
+  _field_types = {
+    'address_string': 'string',
+    'label': 'string',
+    'latitude': 'float',
+    'location_source_id': 'string',
+    'longitude': 'float',
+    'type': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

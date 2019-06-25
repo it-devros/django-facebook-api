@@ -29,30 +29,30 @@ pull request for this class.
 """
 
 class RoasCohortsData(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(RoasCohortsData, self).__init__()
-        self._isRoasCohortsData = True
-        self._api = api
+  def __init__(self, api=None):
+    super(RoasCohortsData, self).__init__()
+    self._isRoasCohortsData = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        cohorts_end = 'cohorts_end'
-        cohorts_start = 'cohorts_start'
-        installs = 'installs'
-        revenue_cohorts = 'revenue_cohorts'
-        spend = 'spend'
+  class Field(AbstractObject.Field):
+    cohorts_end = 'cohorts_end'
+    cohorts_start = 'cohorts_start'
+    installs = 'installs'
+    revenue_cohorts = 'revenue_cohorts'
+    spend = 'spend'
 
-    _field_types = {
-        'cohorts_end': 'string',
-        'cohorts_start': 'string',
-        'installs': 'unsigned int',
-        'revenue_cohorts': 'list<RoasCohortsPerCohortIntervalUnit>',
-        'spend': 'float',
-    }
+  _field_types = {
+    'cohorts_end': 'string',
+    'cohorts_start': 'string',
+    'installs': 'unsigned int',
+    'revenue_cohorts': 'list<RoasCohortsPerCohortIntervalUnit>',
+    'spend': 'float',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

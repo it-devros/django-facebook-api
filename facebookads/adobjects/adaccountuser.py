@@ -34,33 +34,33 @@ pull request for this class.
 """
 
 class AdAccountUser(
-    AdAccountUserMixin,
-    AbstractCrudObject,
+  AdAccountUserMixin,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isAdAccountUser = True
-        super(AdAccountUser, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isAdAccountUser = True
+    super(AdAccountUser, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        id = 'id'
-        name = 'name'
-        permissions = 'permissions'
-        role = 'role'
+  class Field(AbstractObject.Field):
+    id = 'id'
+    name = 'name'
+    permissions = 'permissions'
+    role = 'role'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'users'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'users'
 
-    _field_types = {
-        'id': 'string',
-        'name': 'string',
-        'permissions': 'list<unsigned int>',
-        'role': 'unsigned int',
-    }
+  _field_types = {
+    'id': 'string',
+    'name': 'string',
+    'permissions': 'list<unsigned int>',
+    'role': 'unsigned int',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

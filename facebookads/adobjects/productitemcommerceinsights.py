@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class ProductItemCommerceInsights(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(ProductItemCommerceInsights, self).__init__()
-        self._isProductItemCommerceInsights = True
-        self._api = api
+  def __init__(self, api=None):
+    super(ProductItemCommerceInsights, self).__init__()
+    self._isProductItemCommerceInsights = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        message_sends = 'message_sends'
-        organic_impressions = 'organic_impressions'
-        paid_impressions = 'paid_impressions'
+  class Field(AbstractObject.Field):
+    message_sends = 'message_sends'
+    organic_impressions = 'organic_impressions'
+    paid_impressions = 'paid_impressions'
 
-    _field_types = {
-        'message_sends': 'unsigned int',
-        'organic_impressions': 'unsigned int',
-        'paid_impressions': 'unsigned int',
-    }
+  _field_types = {
+    'message_sends': 'unsigned int',
+    'organic_impressions': 'unsigned int',
+    'paid_impressions': 'unsigned int',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

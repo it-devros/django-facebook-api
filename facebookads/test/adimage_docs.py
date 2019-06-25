@@ -22,7 +22,7 @@
 Unit tests for the Python Facebook Ads API SDK.
 
 How to run:
-    python -m facebookads.test.adimage_docs
+  python -m facebookads.test.adimage_docs
 '''
 
 import os
@@ -32,71 +32,71 @@ from .docs_utils import *
 
 
 class AdImageDocsTestCase(DocsTestCase):
-    def setUp(self):
-        DocsDataStore.set(
-            'image_zip', os.path.join(os.path.dirname(__file__), 'test.zip'))
-        DocsDataStore.set(
-            'image_path', os.path.join(os.path.dirname(__file__), 'test.png'))
-        image = AdImage(parent_id=DocsDataStore.get('adaccount_id'))
-        image[AdImage.Field.filename] = DocsDataStore.get('image_path')
-        image.remote_create()
-        DocsDataStore.set('image_id', image['id'])
+  def setUp(self):
+    DocsDataStore.set(
+      'image_zip', os.path.join(os.path.dirname(__file__), 'test.zip'))
+    DocsDataStore.set(
+      'image_path', os.path.join(os.path.dirname(__file__), 'test.png'))
+    image = AdImage(parent_id=DocsDataStore.get('adaccount_id'))
+    image[AdImage.Field.filename] = DocsDataStore.get('image_path')
+    image.remote_create()
+    DocsDataStore.set('image_id', image['id'])
 
-    def test_remote_create(self):
-        image = AdImage(parent_id=DocsDataStore.get('adaccount_id'))
-        image[AdImage.Field.filename] = DocsDataStore.get('image_path')
-        image.remote_create()
-        self.store_response(image)
+  def test_remote_create(self):
+    image = AdImage(parent_id=DocsDataStore.get('adaccount_id'))
+    image[AdImage.Field.filename] = DocsDataStore.get('image_path')
+    image.remote_create()
+    self.store_response(image)
 
-    def test_remote_create_from_zip(self):
-        images = AdImage.remote_create_from_zip(
-            filename=DocsDataStore.get('image_zip'),
-            parent_id=DocsDataStore.get('adaccount_id'),
-        )
-        self.store_response(images)
+  def test_remote_create_from_zip(self):
+    images = AdImage.remote_create_from_zip(
+      filename=DocsDataStore.get('image_zip'),
+      parent_id=DocsDataStore.get('adaccount_id'),
+    )
+    self.store_response(images)
 
-    def test_remote_read(self):
-        image = AdImage(DocsDataStore.get('image_id'))
-        image.remote_read()
-        self.store_response(image)
+  def test_remote_read(self):
+    image = AdImage(DocsDataStore.get('image_id'))
+    image.remote_read()
+    self.store_response(image)
 
-    def test_get_hash(self):
-        image = AdImage(DocsDataStore.get('image_id'))
-        image.remote_read()
-        image_hash = image.get_hash()
-        self.store_response(image_hash)
+  def test_get_hash(self):
+    image = AdImage(DocsDataStore.get('image_id'))
+    image.remote_read()
+    image_hash = image.get_hash()
+    self.store_response(image_hash)
 
 
 if __name__ == '__main__':
-    handle = open(DocsDataStore.get('filename'), 'w')
-    handle.write('')
-    handle.close()
+  handle = open(DocsDataStore.get('filename'), 'w')
+  handle.write('')
+  handle.close()
 
-    try:
-        config_file = open('./autogen_docs_config.json')
-    except IOError:
-        print("No config file found, skipping docs tests")
-        sys.exit()
-    config = json.load(config_file)
-    config_file.close()
+  try:
+    config_file = open('./autogen_docs_config.json')
+  except IOError:
+    print("No config file found, skipping docs tests")
+    sys.exit()
+  config = json.load(config_file)
+  config_file.close()
 
-    FacebookAdsApi.init(
-        config['app_id'],
-        config['app_secret'],
-        config['access_token'],
-        config['adaccount_id'],
-    )
+  FacebookAdsApi.init(
+    config['app_id'],
+    config['app_secret'],
+    config['access_token'],
+    config['adaccount_id'],
+  )
 
-    DocsDataStore.set('adaccount_id', config['adaccount_id'])
-    DocsDataStore.set('adaccount_id_int', config['adaccount_id_int'])
-    DocsDataStore.set('business_id', config['business_id'])
-    DocsDataStore.set('ca_id', config['ca_id'])
-    DocsDataStore.set('dpa_catalog_id', config['dpa_catalog_id'])
-    DocsDataStore.set('dpa_set_id', config['dpa_set_id'])
-    DocsDataStore.set('dpa_feed_id', config['dpa_feed_id'])
-    DocsDataStore.set('dpa_upload_id', config['dpa_upload_id'])
-    DocsDataStore.set('as_user_id', config['as_user_id'])
-    DocsDataStore.set('page_id', config['page_id'])
-    DocsDataStore.set('pixel_id', config['pixel_id'])
+  DocsDataStore.set('adaccount_id', config['adaccount_id'])
+  DocsDataStore.set('adaccount_id_int', config['adaccount_id_int'])
+  DocsDataStore.set('business_id', config['business_id'])
+  DocsDataStore.set('ca_id', config['ca_id'])
+  DocsDataStore.set('dpa_catalog_id', config['dpa_catalog_id'])
+  DocsDataStore.set('dpa_set_id', config['dpa_set_id'])
+  DocsDataStore.set('dpa_feed_id', config['dpa_feed_id'])
+  DocsDataStore.set('dpa_upload_id', config['dpa_upload_id'])
+  DocsDataStore.set('as_user_id', config['as_user_id'])
+  DocsDataStore.set('page_id', config['page_id'])
+  DocsDataStore.set('pixel_id', config['pixel_id'])
 
-    unittest.main()
+  unittest.main()

@@ -29,34 +29,34 @@ pull request for this class.
 """
 
 class AdCreativeObjectStorySpec(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativeObjectStorySpec, self).__init__()
-        self._isAdCreativeObjectStorySpec = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativeObjectStorySpec, self).__init__()
+    self._isAdCreativeObjectStorySpec = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        instagram_actor_id = 'instagram_actor_id'
-        link_data = 'link_data'
-        page_id = 'page_id'
-        photo_data = 'photo_data'
-        template_data = 'template_data'
-        text_data = 'text_data'
-        video_data = 'video_data'
+  class Field(AbstractObject.Field):
+    instagram_actor_id = 'instagram_actor_id'
+    link_data = 'link_data'
+    page_id = 'page_id'
+    photo_data = 'photo_data'
+    template_data = 'template_data'
+    text_data = 'text_data'
+    video_data = 'video_data'
 
-    _field_types = {
-        'instagram_actor_id': 'string',
-        'link_data': 'AdCreativeLinkData',
-        'page_id': 'string',
-        'photo_data': 'AdCreativePhotoData',
-        'template_data': 'AdCreativeLinkData',
-        'text_data': 'AdCreativeTextData',
-        'video_data': 'AdCreativeVideoData',
-    }
+  _field_types = {
+    'instagram_actor_id': 'string',
+    'link_data': 'AdCreativeLinkData',
+    'page_id': 'string',
+    'photo_data': 'AdCreativePhotoData',
+    'template_data': 'AdCreativeLinkData',
+    'text_data': 'AdCreativeTextData',
+    'video_data': 'AdCreativeVideoData',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

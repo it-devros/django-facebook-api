@@ -29,66 +29,66 @@ pull request for this class.
 """
 
 class AdCreativeLinkDataCallToAction(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativeLinkDataCallToAction, self).__init__()
-        self._isAdCreativeLinkDataCallToAction = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativeLinkDataCallToAction, self).__init__()
+    self._isAdCreativeLinkDataCallToAction = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        type = 'type'
-        value = 'value'
+  class Field(AbstractObject.Field):
+    type = 'type'
+    value = 'value'
 
-    class Type:
-        open_link = 'OPEN_LINK'
-        like_page = 'LIKE_PAGE'
-        shop_now = 'SHOP_NOW'
-        play_game = 'PLAY_GAME'
-        install_app = 'INSTALL_APP'
-        use_app = 'USE_APP'
-        install_mobile_app = 'INSTALL_MOBILE_APP'
-        use_mobile_app = 'USE_MOBILE_APP'
-        book_travel = 'BOOK_TRAVEL'
-        listen_music = 'LISTEN_MUSIC'
-        learn_more = 'LEARN_MORE'
-        sign_up = 'SIGN_UP'
-        download = 'DOWNLOAD'
-        watch_more = 'WATCH_MORE'
-        no_button = 'NO_BUTTON'
-        call_now = 'CALL_NOW'
-        apply_now = 'APPLY_NOW'
-        buy_now = 'BUY_NOW'
-        get_offer = 'GET_OFFER'
-        get_offer_view = 'GET_OFFER_VIEW'
-        get_directions = 'GET_DIRECTIONS'
-        message_page = 'MESSAGE_PAGE'
-        message_user = 'MESSAGE_USER'
-        subscribe = 'SUBSCRIBE'
-        sell_now = 'SELL_NOW'
-        donate_now = 'DONATE_NOW'
-        get_quote = 'GET_QUOTE'
-        contact_us = 'CONTACT_US'
-        start_order = 'START_ORDER'
-        record_now = 'RECORD_NOW'
-        vote_now = 'VOTE_NOW'
-        register_now = 'REGISTER_NOW'
-        request_time = 'REQUEST_TIME'
-        see_menu = 'SEE_MENU'
-        email_now = 'EMAIL_NOW'
-        get_showtimes = 'GET_SHOWTIMES'
-        try_it = 'TRY_IT'
-        listen_now = 'LISTEN_NOW'
-        open_movies = 'OPEN_MOVIES'
+  class Type:
+    open_link = 'OPEN_LINK'
+    like_page = 'LIKE_PAGE'
+    shop_now = 'SHOP_NOW'
+    play_game = 'PLAY_GAME'
+    install_app = 'INSTALL_APP'
+    use_app = 'USE_APP'
+    install_mobile_app = 'INSTALL_MOBILE_APP'
+    use_mobile_app = 'USE_MOBILE_APP'
+    book_travel = 'BOOK_TRAVEL'
+    listen_music = 'LISTEN_MUSIC'
+    learn_more = 'LEARN_MORE'
+    sign_up = 'SIGN_UP'
+    download = 'DOWNLOAD'
+    watch_more = 'WATCH_MORE'
+    no_button = 'NO_BUTTON'
+    call_now = 'CALL_NOW'
+    apply_now = 'APPLY_NOW'
+    buy_now = 'BUY_NOW'
+    get_offer = 'GET_OFFER'
+    get_offer_view = 'GET_OFFER_VIEW'
+    get_directions = 'GET_DIRECTIONS'
+    message_page = 'MESSAGE_PAGE'
+    message_user = 'MESSAGE_USER'
+    subscribe = 'SUBSCRIBE'
+    sell_now = 'SELL_NOW'
+    donate_now = 'DONATE_NOW'
+    get_quote = 'GET_QUOTE'
+    contact_us = 'CONTACT_US'
+    start_order = 'START_ORDER'
+    record_now = 'RECORD_NOW'
+    vote_now = 'VOTE_NOW'
+    register_now = 'REGISTER_NOW'
+    request_time = 'REQUEST_TIME'
+    see_menu = 'SEE_MENU'
+    email_now = 'EMAIL_NOW'
+    get_showtimes = 'GET_SHOWTIMES'
+    try_it = 'TRY_IT'
+    listen_now = 'LISTEN_NOW'
+    open_movies = 'OPEN_MOVIES'
 
-    _field_types = {
-        'type': 'Type',
-        'value': 'AdCreativeLinkDataCallToActionValue',
-    }
+  _field_types = {
+    'type': 'Type',
+    'value': 'AdCreativeLinkDataCallToActionValue',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['Type'] = AdCreativeLinkDataCallToAction.Type.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['Type'] = AdCreativeLinkDataCallToAction.Type.__dict__.values()
+    return field_enum_info

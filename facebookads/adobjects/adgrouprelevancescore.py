@@ -29,28 +29,28 @@ pull request for this class.
 """
 
 class AdgroupRelevanceScore(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdgroupRelevanceScore, self).__init__()
-        self._isAdgroupRelevanceScore = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdgroupRelevanceScore, self).__init__()
+    self._isAdgroupRelevanceScore = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        negative_feedback = 'negative_feedback'
-        positive_feedback = 'positive_feedback'
-        score = 'score'
-        status = 'status'
+  class Field(AbstractObject.Field):
+    negative_feedback = 'negative_feedback'
+    positive_feedback = 'positive_feedback'
+    score = 'score'
+    status = 'status'
 
-    _field_types = {
-        'negative_feedback': 'string',
-        'positive_feedback': 'string',
-        'score': 'string',
-        'status': 'string',
-    }
+  _field_types = {
+    'negative_feedback': 'string',
+    'positive_feedback': 'string',
+    'score': 'string',
+    'status': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

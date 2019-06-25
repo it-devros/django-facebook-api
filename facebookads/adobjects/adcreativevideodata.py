@@ -29,54 +29,54 @@ pull request for this class.
 """
 
 class AdCreativeVideoData(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativeVideoData, self).__init__()
-        self._isAdCreativeVideoData = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativeVideoData, self).__init__()
+    self._isAdCreativeVideoData = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        additional_image_index = 'additional_image_index'
-        branded_content_shared_to_sponsor_status = 'branded_content_shared_to_sponsor_status'
-        branded_content_sponsor_page_id = 'branded_content_sponsor_page_id'
-        branded_content_sponsor_relationship = 'branded_content_sponsor_relationship'
-        call_to_action = 'call_to_action'
-        collection_thumbnails = 'collection_thumbnails'
-        image_hash = 'image_hash'
-        image_url = 'image_url'
-        link_description = 'link_description'
-        message = 'message'
-        offer_id = 'offer_id'
-        page_welcome_message = 'page_welcome_message'
-        post_click_configuration = 'post_click_configuration'
-        retailer_item_ids = 'retailer_item_ids'
-        targeting = 'targeting'
-        title = 'title'
-        video_id = 'video_id'
+  class Field(AbstractObject.Field):
+    additional_image_index = 'additional_image_index'
+    branded_content_shared_to_sponsor_status = 'branded_content_shared_to_sponsor_status'
+    branded_content_sponsor_page_id = 'branded_content_sponsor_page_id'
+    branded_content_sponsor_relationship = 'branded_content_sponsor_relationship'
+    call_to_action = 'call_to_action'
+    collection_thumbnails = 'collection_thumbnails'
+    image_hash = 'image_hash'
+    image_url = 'image_url'
+    link_description = 'link_description'
+    message = 'message'
+    offer_id = 'offer_id'
+    page_welcome_message = 'page_welcome_message'
+    post_click_configuration = 'post_click_configuration'
+    retailer_item_ids = 'retailer_item_ids'
+    targeting = 'targeting'
+    title = 'title'
+    video_id = 'video_id'
 
-    _field_types = {
-        'additional_image_index': 'int',
-        'branded_content_shared_to_sponsor_status': 'string',
-        'branded_content_sponsor_page_id': 'string',
-        'branded_content_sponsor_relationship': 'string',
-        'call_to_action': 'AdCreativeLinkDataCallToAction',
-        'collection_thumbnails': 'list<AdCreativeCollectionThumbnailInfo>',
-        'image_hash': 'string',
-        'image_url': 'string',
-        'link_description': 'string',
-        'message': 'string',
-        'offer_id': 'string',
-        'page_welcome_message': 'string',
-        'post_click_configuration': 'AdCreativePostClickConfiguration',
-        'retailer_item_ids': 'list<string>',
-        'targeting': 'Targeting',
-        'title': 'string',
-        'video_id': 'string',
-    }
+  _field_types = {
+    'additional_image_index': 'int',
+    'branded_content_shared_to_sponsor_status': 'string',
+    'branded_content_sponsor_page_id': 'string',
+    'branded_content_sponsor_relationship': 'string',
+    'call_to_action': 'AdCreativeLinkDataCallToAction',
+    'collection_thumbnails': 'list<AdCreativeCollectionThumbnailInfo>',
+    'image_hash': 'string',
+    'image_url': 'string',
+    'link_description': 'string',
+    'message': 'string',
+    'offer_id': 'string',
+    'page_welcome_message': 'string',
+    'post_click_configuration': 'AdCreativePostClickConfiguration',
+    'retailer_item_ids': 'list<string>',
+    'targeting': 'Targeting',
+    'title': 'string',
+    'video_id': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

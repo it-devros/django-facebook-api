@@ -29,34 +29,34 @@ pull request for this class.
 """
 
 class TargetingGeoLocationCity(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(TargetingGeoLocationCity, self).__init__()
-        self._isTargetingGeoLocationCity = True
-        self._api = api
+  def __init__(self, api=None):
+    super(TargetingGeoLocationCity, self).__init__()
+    self._isTargetingGeoLocationCity = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        country = 'country'
-        distance_unit = 'distance_unit'
-        key = 'key'
-        name = 'name'
-        radius = 'radius'
-        region = 'region'
-        region_id = 'region_id'
+  class Field(AbstractObject.Field):
+    country = 'country'
+    distance_unit = 'distance_unit'
+    key = 'key'
+    name = 'name'
+    radius = 'radius'
+    region = 'region'
+    region_id = 'region_id'
 
-    _field_types = {
-        'country': 'string',
-        'distance_unit': 'string',
-        'key': 'string',
-        'name': 'string',
-        'radius': 'unsigned int',
-        'region': 'string',
-        'region_id': 'string',
-    }
+  _field_types = {
+    'country': 'string',
+    'distance_unit': 'string',
+    'key': 'string',
+    'name': 'string',
+    'radius': 'unsigned int',
+    'region': 'string',
+    'region_id': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

@@ -24,7 +24,7 @@ from facebookads.exceptions import FacebookBadObjectError
 
 
 def warning(message):
-    if apiconfig.ads_api_config['STRICT_MODE']:
-        raise FacebookBadObjectError(message)
-    else:
-        warnings.warn(message)
+  if apiconfig.ads_api_config['STRICT_MODE']:
+    raise FacebookBadObjectError(message)
+  else:
+    warnings.warn(message)

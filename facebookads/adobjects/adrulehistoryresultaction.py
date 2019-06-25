@@ -29,28 +29,28 @@ pull request for this class.
 """
 
 class AdRuleHistoryResultAction(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdRuleHistoryResultAction, self).__init__()
-        self._isAdRuleHistoryResultAction = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdRuleHistoryResultAction, self).__init__()
+    self._isAdRuleHistoryResultAction = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        action = 'action'
-        field = 'field'
-        new_value = 'new_value'
-        old_value = 'old_value'
+  class Field(AbstractObject.Field):
+    action = 'action'
+    field = 'field'
+    new_value = 'new_value'
+    old_value = 'old_value'
 
-    _field_types = {
-        'action': 'string',
-        'field': 'string',
-        'new_value': 'string',
-        'old_value': 'string',
-    }
+  _field_types = {
+    'action': 'string',
+    'field': 'string',
+    'new_value': 'string',
+    'old_value': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

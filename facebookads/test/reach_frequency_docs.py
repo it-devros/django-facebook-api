@@ -22,7 +22,7 @@
 Unit tests for the Python Facebook Ads API SDK.
 
 How to run:
-    python -m facebookads.test.reach_frequency_docs
+  python -m facebookads.test.reach_frequency_docs
 '''
 
 import os
@@ -32,47 +32,47 @@ from .docs_utils import *
 
 
 class ReachFrequencyPredictionDocsTestCase(DocsTestCase):
-    def setUp(self):
-        rfp = self.create_reach_frequency_prediction()
-        DocsDataStore.set('rfp_id', rfp.get_id())
+  def setUp(self):
+    rfp = self.create_reach_frequency_prediction()
+    DocsDataStore.set('rfp_id', rfp.get_id())
 
-    def test_reserve(self):
-        pass
+  def test_reserve(self):
+    pass
 
-    def test_cancel(self):
-        pass
+  def test_cancel(self):
+    pass
 
 
 if __name__ == '__main__':
-    handle = open(DocsDataStore.get('filename'), 'w')
-    handle.write('')
-    handle.close()
+  handle = open(DocsDataStore.get('filename'), 'w')
+  handle.write('')
+  handle.close()
 
-    try:
-        config_file = open('./autogen_docs_config.json')
-    except IOError:
-        print("No config file found, skipping docs tests")
-        sys.exit()
-    config = json.load(config_file)
-    config_file.close()
+  try:
+    config_file = open('./autogen_docs_config.json')
+  except IOError:
+    print("No config file found, skipping docs tests")
+    sys.exit()
+  config = json.load(config_file)
+  config_file.close()
 
-    FacebookAdsApi.init(
-        config['app_id'],
-        config['app_secret'],
-        config['access_token'],
-        config['adaccount_id'],
-    )
+  FacebookAdsApi.init(
+    config['app_id'],
+    config['app_secret'],
+    config['access_token'],
+    config['adaccount_id'],
+  )
 
-    DocsDataStore.set('adaccount_id', config['adaccount_id'])
-    DocsDataStore.set('adaccount_id_int', config['adaccount_id_int'])
-    DocsDataStore.set('business_id', config['business_id'])
-    DocsDataStore.set('ca_id', config['ca_id'])
-    DocsDataStore.set('dpa_catalog_id', config['dpa_catalog_id'])
-    DocsDataStore.set('dpa_set_id', config['dpa_set_id'])
-    DocsDataStore.set('dpa_feed_id', config['dpa_feed_id'])
-    DocsDataStore.set('dpa_upload_id', config['dpa_upload_id'])
-    DocsDataStore.set('as_user_id', config['as_user_id'])
-    DocsDataStore.set('page_id', config['page_id'])
-    DocsDataStore.set('pixel_id', config['pixel_id'])
+  DocsDataStore.set('adaccount_id', config['adaccount_id'])
+  DocsDataStore.set('adaccount_id_int', config['adaccount_id_int'])
+  DocsDataStore.set('business_id', config['business_id'])
+  DocsDataStore.set('ca_id', config['ca_id'])
+  DocsDataStore.set('dpa_catalog_id', config['dpa_catalog_id'])
+  DocsDataStore.set('dpa_set_id', config['dpa_set_id'])
+  DocsDataStore.set('dpa_feed_id', config['dpa_feed_id'])
+  DocsDataStore.set('dpa_upload_id', config['dpa_upload_id'])
+  DocsDataStore.set('as_user_id', config['as_user_id'])
+  DocsDataStore.set('page_id', config['page_id'])
+  DocsDataStore.set('pixel_id', config['pixel_id'])
 
-    unittest.main()
+  unittest.main()

@@ -29,28 +29,28 @@ pull request for this class.
 """
 
 class TargetingGeoLocationElectoralDistrict(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(TargetingGeoLocationElectoralDistrict, self).__init__()
-        self._isTargetingGeoLocationElectoralDistrict = True
-        self._api = api
+  def __init__(self, api=None):
+    super(TargetingGeoLocationElectoralDistrict, self).__init__()
+    self._isTargetingGeoLocationElectoralDistrict = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        country = 'country'
-        electoral_district = 'electoral_district'
-        key = 'key'
-        name = 'name'
+  class Field(AbstractObject.Field):
+    country = 'country'
+    electoral_district = 'electoral_district'
+    key = 'key'
+    name = 'name'
 
-    _field_types = {
-        'country': 'string',
-        'electoral_district': 'string',
-        'key': 'string',
-        'name': 'string',
-    }
+  _field_types = {
+    'country': 'string',
+    'electoral_district': 'string',
+    'key': 'string',
+    'name': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

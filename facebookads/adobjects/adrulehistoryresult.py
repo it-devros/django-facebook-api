@@ -29,32 +29,32 @@ pull request for this class.
 """
 
 class AdRuleHistoryResult(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdRuleHistoryResult, self).__init__()
-        self._isAdRuleHistoryResult = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdRuleHistoryResult, self).__init__()
+    self._isAdRuleHistoryResult = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        actions = 'actions'
-        object_id = 'object_id'
-        object_type = 'object_type'
+  class Field(AbstractObject.Field):
+    actions = 'actions'
+    object_id = 'object_id'
+    object_type = 'object_type'
 
-    class ObjectType:
-        campaign = 'CAMPAIGN'
-        adset = 'ADSET'
-        ad = 'AD'
+  class ObjectType:
+    campaign = 'CAMPAIGN'
+    adset = 'ADSET'
+    ad = 'AD'
 
-    _field_types = {
-        'actions': 'list<AdRuleHistoryResultAction>',
-        'object_id': 'string',
-        'object_type': 'ObjectType',
-    }
+  _field_types = {
+    'actions': 'list<AdRuleHistoryResultAction>',
+    'object_id': 'string',
+    'object_type': 'ObjectType',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['ObjectType'] = AdRuleHistoryResult.ObjectType.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['ObjectType'] = AdRuleHistoryResult.ObjectType.__dict__.values()
+    return field_enum_info

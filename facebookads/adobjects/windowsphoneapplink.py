@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class WindowsPhoneAppLink(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(WindowsPhoneAppLink, self).__init__()
-        self._isWindowsPhoneAppLink = True
-        self._api = api
+  def __init__(self, api=None):
+    super(WindowsPhoneAppLink, self).__init__()
+    self._isWindowsPhoneAppLink = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        app_id = 'app_id'
-        app_name = 'app_name'
-        url = 'url'
+  class Field(AbstractObject.Field):
+    app_id = 'app_id'
+    app_name = 'app_name'
+    url = 'url'
 
-    _field_types = {
-        'app_id': 'string',
-        'app_name': 'string',
-        'url': 'string',
-    }
+  _field_types = {
+    'app_id': 'string',
+    'app_name': 'string',
+    'url': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

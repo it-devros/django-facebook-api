@@ -22,68 +22,68 @@ from facebookads.adobjects.videothumbnail import VideoThumbnail
 from facebookads.adobjects.abstractcrudobject import AbstractCrudObject
 
 from facebookads.video_uploader import (
-    VideoUploader,
-    VideoUploadRequest,
-    VideoEncodingStatusChecker,
+  VideoUploader,
+  VideoUploadRequest,
+  VideoEncodingStatusChecker,
 )
 from facebookads.exceptions import (
-    FacebookBadObjectError,
-    FacebookError,
+  FacebookBadObjectError,
+  FacebookError,
 )
 
 class AdVideo(AbstractCrudObject):
 
-    class Field(object):
-        filepath = 'filepath'
-        id = 'id'
-        slideshow_spec = 'slideshow_spec'
+  class Field(object):
+    filepath = 'filepath'
+    id = 'id'
+    slideshow_spec = 'slideshow_spec'
 
-    def remote_create(
-        self,
-        batch=None,
-        failure=None,
-        params=None,
-        success=None,
-    ):
-        """
-        Uploads filepath and creates the AdVideo object from it.
-        It has same arguments as AbstractCrudObject.remote_create except it
-        does not have the files argument but requires the 'filepath' property
-        to be defined.
-        """
-        if (self.Field.slideshow_spec in self and
-        self[self.Field.slideshow_spec] is not None):
-            request = VideoUploadRequest(self.get_api_assured())
-            request.setParams(params={'slideshow_spec': {
-                'images_urls': self[self.Field.slideshow_spec]['images_urls'],
-                'duration_ms': self[self.Field.slideshow_spec]['duration_ms'],
-                'transition_ms': self[self.Field.slideshow_spec]['transition_ms'],
-            }})
-            response = request.send((self.get_parent_id_assured(), 'advideos')).json()
-        elif not (self.Field.filepath in self):
-            raise FacebookBadObjectError(
-                "AdVideo requires a filepath or slideshow_spec to be defined.",
-            )
-        else:
-            video_uploader = VideoUploader()
-            response = video_uploader.upload(self)
-        self._set_data(response)
-        return response
+  def remote_create(
+    self,
+    batch=None,
+    failure=None,
+    params=None,
+    success=None,
+  ):
+    """
+    Uploads filepath and creates the AdVideo object from it.
+    It has same arguments as AbstractCrudObject.remote_create except it
+    does not have the files argument but requires the 'filepath' property
+    to be defined.
+    """
+    if (self.Field.slideshow_spec in self and
+    self[self.Field.slideshow_spec] is not None):
+      request = VideoUploadRequest(self.get_api_assured())
+      request.setParams(params={'slideshow_spec': {
+        'images_urls': self[self.Field.slideshow_spec]['images_urls'],
+        'duration_ms': self[self.Field.slideshow_spec]['duration_ms'],
+        'transition_ms': self[self.Field.slideshow_spec]['transition_ms'],
+      }})
+      response = request.send((self.get_parent_id_assured(), 'advideos')).json()
+    elif not (self.Field.filepath in self):
+      raise FacebookBadObjectError(
+        "AdVideo requires a filepath or slideshow_spec to be defined.",
+      )
+    else:
+      video_uploader = VideoUploader()
+      response = video_uploader.upload(self)
+    self._set_data(response)
+    return response
 
-    def waitUntilEncodingReady(self, interval=30, timeout=600):
-        if 'id' not in self:
-            raise FacebookError(
-                'Invalid Video ID',
-            )
-        VideoEncodingStatusChecker.waitUntilReady(
-            self.get_api_assured(),
-            self['id'],
-            interval,
-            timeout,
-        )
+  def waitUntilEncodingReady(self, interval=30, timeout=600):
+    if 'id' not in self:
+      raise FacebookError(
+        'Invalid Video ID',
+      )
+    VideoEncodingStatusChecker.waitUntilReady(
+      self.get_api_assured(),
+      self['id'],
+      interval,
+      timeout,
+    )
 
-    def get_thumbnails(self, fields=None, params=None):
-        """
-        Returns all the thumbnails associated with the ad video
-        """
-        return self.iterate_edge(VideoThumbnail, fields, params, endpoint='thumbnails')
+  def get_thumbnails(self, fields=None, params=None):
+    """
+    Returns all the thumbnails associated with the ad video
+    """
+    return self.iterate_edge(VideoThumbnail, fields, params, endpoint='thumbnails')

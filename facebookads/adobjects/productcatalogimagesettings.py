@@ -29,24 +29,24 @@ pull request for this class.
 """
 
 class ProductCatalogImageSettings(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(ProductCatalogImageSettings, self).__init__()
-        self._isProductCatalogImageSettings = True
-        self._api = api
+  def __init__(self, api=None):
+    super(ProductCatalogImageSettings, self).__init__()
+    self._isProductCatalogImageSettings = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        carousel_ad = 'carousel_ad'
-        single_ad = 'single_ad'
+  class Field(AbstractObject.Field):
+    carousel_ad = 'carousel_ad'
+    single_ad = 'single_ad'
 
-    _field_types = {
-        'carousel_ad': 'ProductCatalogImageSettingsOperation',
-        'single_ad': 'ProductCatalogImageSettingsOperation',
-    }
+  _field_types = {
+    'carousel_ad': 'ProductCatalogImageSettingsOperation',
+    'single_ad': 'ProductCatalogImageSettingsOperation',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

@@ -29,40 +29,40 @@ pull request for this class.
 """
 
 class AdCreativeLinkDataCallToActionValue(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativeLinkDataCallToActionValue, self).__init__()
-        self._isAdCreativeLinkDataCallToActionValue = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativeLinkDataCallToActionValue, self).__init__()
+    self._isAdCreativeLinkDataCallToActionValue = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        app_destination = 'app_destination'
-        app_link = 'app_link'
-        application = 'application'
-        event_id = 'event_id'
-        lead_gen_form_id = 'lead_gen_form_id'
-        link = 'link'
-        link_caption = 'link_caption'
-        link_format = 'link_format'
-        page = 'page'
-        product_link = 'product_link'
+  class Field(AbstractObject.Field):
+    app_destination = 'app_destination'
+    app_link = 'app_link'
+    application = 'application'
+    event_id = 'event_id'
+    lead_gen_form_id = 'lead_gen_form_id'
+    link = 'link'
+    link_caption = 'link_caption'
+    link_format = 'link_format'
+    page = 'page'
+    product_link = 'product_link'
 
-    _field_types = {
-        'app_destination': 'string',
-        'app_link': 'string',
-        'application': 'string',
-        'event_id': 'string',
-        'lead_gen_form_id': 'string',
-        'link': 'string',
-        'link_caption': 'string',
-        'link_format': 'string',
-        'page': 'string',
-        'product_link': 'string',
-    }
+  _field_types = {
+    'app_destination': 'string',
+    'app_link': 'string',
+    'application': 'string',
+    'event_id': 'string',
+    'lead_gen_form_id': 'string',
+    'link': 'string',
+    'link_caption': 'string',
+    'link_format': 'string',
+    'page': 'string',
+    'product_link': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

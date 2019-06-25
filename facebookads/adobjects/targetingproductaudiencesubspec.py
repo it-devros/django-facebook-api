@@ -29,24 +29,24 @@ pull request for this class.
 """
 
 class TargetingProductAudienceSubSpec(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(TargetingProductAudienceSubSpec, self).__init__()
-        self._isTargetingProductAudienceSubSpec = True
-        self._api = api
+  def __init__(self, api=None):
+    super(TargetingProductAudienceSubSpec, self).__init__()
+    self._isTargetingProductAudienceSubSpec = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        retention_seconds = 'retention_seconds'
-        rule = 'rule'
+  class Field(AbstractObject.Field):
+    retention_seconds = 'retention_seconds'
+    rule = 'rule'
 
-    _field_types = {
-        'retention_seconds': 'string',
-        'rule': 'string',
-    }
+  _field_types = {
+    'retention_seconds': 'string',
+    'rule': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

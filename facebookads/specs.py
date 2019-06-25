@@ -39,39 +39,39 @@ from facebookads.adobjects import adcreativevideodata
 
 
 class ObjectStorySpec(adcreativeobjectstoryspec.AdCreativeObjectStorySpec):
-    pass
+  pass
 
 
 class AttachmentData(adcreativelinkdatachildattachment.AdCreativeLinkDataChildAttachment):
-    pass
+  pass
 
 
 class LinkData(adcreativelinkdata.AdCreativeLinkData):
-    pass
+  pass
 
 
 class OfferData(adcreativeofferdata.AdCreativeOfferData):
-    pass
+  pass
 
 
 class PhotoData(adcreativephotodata.AdCreativePhotoData):
-    pass
+  pass
 
 
 class TemplateData(adcreativelinkdata.AdCreativeLinkData):
-    pass
+  pass
 
 
 class TextData(adcreativetextdata.AdCreativeTextData):
-    pass
+  pass
 
 
 class VideoData(adcreativevideodata.AdCreativeVideoData):
-    pass
+  pass
 
 
 class SlideshowSpec(ValidatesFields, AbstractObject):
-    class Field(object):
-        images_urls = 'images_urls'
-        duration_ms = 'duration_ms'
-        transition_ms = 'transition_ms'
+  class Field(object):
+    images_urls = 'images_urls'
+    duration_ms = 'duration_ms'
+    transition_ms = 'transition_ms'

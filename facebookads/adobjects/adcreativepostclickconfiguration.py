@@ -29,24 +29,24 @@ pull request for this class.
 """
 
 class AdCreativePostClickConfiguration(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativePostClickConfiguration, self).__init__()
-        self._isAdCreativePostClickConfiguration = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativePostClickConfiguration, self).__init__()
+    self._isAdCreativePostClickConfiguration = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        post_click_item_description = 'post_click_item_description'
-        post_click_item_headline = 'post_click_item_headline'
+  class Field(AbstractObject.Field):
+    post_click_item_description = 'post_click_item_description'
+    post_click_item_headline = 'post_click_item_headline'
 
-    _field_types = {
-        'post_click_item_description': 'string',
-        'post_click_item_headline': 'string',
-    }
+  _field_types = {
+    'post_click_item_description': 'string',
+    'post_click_item_headline': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

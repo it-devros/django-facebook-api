@@ -29,30 +29,30 @@ pull request for this class.
 """
 
 class CustomAudiencePermission(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(CustomAudiencePermission, self).__init__()
-        self._isCustomAudiencePermission = True
-        self._api = api
+  def __init__(self, api=None):
+    super(CustomAudiencePermission, self).__init__()
+    self._isCustomAudiencePermission = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        can_edit = 'can_edit'
-        can_see_insight = 'can_see_insight'
-        can_share = 'can_share'
-        subtype_supports_lookalike = 'subtype_supports_lookalike'
-        supports_recipient_lookalike = 'supports_recipient_lookalike'
+  class Field(AbstractObject.Field):
+    can_edit = 'can_edit'
+    can_see_insight = 'can_see_insight'
+    can_share = 'can_share'
+    subtype_supports_lookalike = 'subtype_supports_lookalike'
+    supports_recipient_lookalike = 'supports_recipient_lookalike'
 
-    _field_types = {
-        'can_edit': 'bool',
-        'can_see_insight': 'bool',
-        'can_share': 'bool',
-        'subtype_supports_lookalike': 'bool',
-        'supports_recipient_lookalike': 'bool',
-    }
+  _field_types = {
+    'can_edit': 'bool',
+    'can_see_insight': 'bool',
+    'can_share': 'bool',
+    'subtype_supports_lookalike': 'bool',
+    'supports_recipient_lookalike': 'bool',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

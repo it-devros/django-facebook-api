@@ -7,17 +7,17 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    initial = True
+  initial = True
 
-    dependencies = [
-    ]
+  dependencies = [
+  ]
 
-    operations = [
-        migrations.CreateModel(
-            name='Adaccount',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('accountname', models.CharField(max_length=250)),
-            ],
-        ),
-    ]
+  operations = [
+    migrations.CreateModel(
+      name='Adaccount',
+      fields=[
+        ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+        ('accountname', models.CharField(max_length=250)),
+      ],
+    ),
+  ]

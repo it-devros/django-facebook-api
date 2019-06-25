@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class CustomAudiencePrefillState(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(CustomAudiencePrefillState, self).__init__()
-        self._isCustomAudiencePrefillState = True
-        self._api = api
+  def __init__(self, api=None):
+    super(CustomAudiencePrefillState, self).__init__()
+    self._isCustomAudiencePrefillState = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        description = 'description'
-        num_added = 'num_added'
-        status = 'status'
+  class Field(AbstractObject.Field):
+    description = 'description'
+    num_added = 'num_added'
+    status = 'status'
 
-    _field_types = {
-        'description': 'string',
-        'num_added': 'unsigned int',
-        'status': 'string',
-    }
+  _field_types = {
+    'description': 'string',
+    'num_added': 'unsigned int',
+    'status': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

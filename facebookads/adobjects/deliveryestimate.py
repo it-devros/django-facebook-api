@@ -29,30 +29,30 @@ pull request for this class.
 """
 
 class DeliveryEstimate(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(DeliveryEstimate, self).__init__()
-        self._isDeliveryEstimate = True
-        self._api = api
+  def __init__(self, api=None):
+    super(DeliveryEstimate, self).__init__()
+    self._isDeliveryEstimate = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        bid_estimate = 'bid_estimate'
-        daily_outcomes_curve = 'daily_outcomes_curve'
-        estimate_dau = 'estimate_dau'
-        estimate_mau = 'estimate_mau'
-        estimate_ready = 'estimate_ready'
+  class Field(AbstractObject.Field):
+    bid_estimate = 'bid_estimate'
+    daily_outcomes_curve = 'daily_outcomes_curve'
+    estimate_dau = 'estimate_dau'
+    estimate_mau = 'estimate_mau'
+    estimate_ready = 'estimate_ready'
 
-    _field_types = {
-        'bid_estimate': 'Object',
-        'daily_outcomes_curve': 'list<OutcomePredictionPoint>',
-        'estimate_dau': 'Object',
-        'estimate_mau': 'Object',
-        'estimate_ready': 'bool',
-    }
+  _field_types = {
+    'bid_estimate': 'Object',
+    'daily_outcomes_curve': 'list<OutcomePredictionPoint>',
+    'estimate_dau': 'Object',
+    'estimate_mau': 'Object',
+    'estimate_ready': 'bool',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

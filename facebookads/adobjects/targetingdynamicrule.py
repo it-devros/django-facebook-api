@@ -29,36 +29,36 @@ pull request for this class.
 """
 
 class TargetingDynamicRule(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(TargetingDynamicRule, self).__init__()
-        self._isTargetingDynamicRule = True
-        self._api = api
+  def __init__(self, api=None):
+    super(TargetingDynamicRule, self).__init__()
+    self._isTargetingDynamicRule = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        field_action_type = 'action.type'
-        ad_group_id = 'ad_group_id'
-        campaign_group_id = 'campaign_group_id'
-        campaign_id = 'campaign_id'
-        impression_count = 'impression_count'
-        page_id = 'page_id'
-        post = 'post'
-        retention_seconds = 'retention_seconds'
+  class Field(AbstractObject.Field):
+    field_action_type = 'action.type'
+    ad_group_id = 'ad_group_id'
+    campaign_group_id = 'campaign_group_id'
+    campaign_id = 'campaign_id'
+    impression_count = 'impression_count'
+    page_id = 'page_id'
+    post = 'post'
+    retention_seconds = 'retention_seconds'
 
-    _field_types = {
-        'action.type': 'string',
-        'ad_group_id': 'string',
-        'campaign_group_id': 'string',
-        'campaign_id': 'string',
-        'impression_count': 'string',
-        'page_id': 'string',
-        'post': 'string',
-        'retention_seconds': 'string',
-    }
+  _field_types = {
+    'action.type': 'string',
+    'ad_group_id': 'string',
+    'campaign_group_id': 'string',
+    'campaign_id': 'string',
+    'impression_count': 'string',
+    'page_id': 'string',
+    'post': 'string',
+    'retention_seconds': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

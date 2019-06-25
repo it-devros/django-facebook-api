@@ -33,27 +33,27 @@ pull request for this class.
 """
 
 class FundingSourceDetails(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isFundingSourceDetails = True
-        super(FundingSourceDetails, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isFundingSourceDetails = True
+    super(FundingSourceDetails, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        coupon = 'coupon'
-        display_string = 'display_string'
-        id = 'id'
-        type = 'type'
+  class Field(AbstractObject.Field):
+    coupon = 'coupon'
+    display_string = 'display_string'
+    id = 'id'
+    type = 'type'
 
-    _field_types = {
-        'coupon': 'FundingSourceDetailsCoupon',
-        'display_string': 'string',
-        'id': 'string',
-        'type': 'int',
-    }
+  _field_types = {
+    'coupon': 'FundingSourceDetailsCoupon',
+    'display_string': 'string',
+    'id': 'string',
+    'type': 'int',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

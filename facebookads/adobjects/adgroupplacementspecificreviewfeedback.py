@@ -29,34 +29,34 @@ pull request for this class.
 """
 
 class AdgroupPlacementSpecificReviewFeedback(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdgroupPlacementSpecificReviewFeedback, self).__init__()
-        self._isAdgroupPlacementSpecificReviewFeedback = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdgroupPlacementSpecificReviewFeedback, self).__init__()
+    self._isAdgroupPlacementSpecificReviewFeedback = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        account_admin = 'account_admin'
-        ad = 'ad'
-        facebook = 'facebook'
-        instagram = 'instagram'
-        page_admin = 'page_admin'
-        product = 'product'
-        seller = 'seller'
+  class Field(AbstractObject.Field):
+    account_admin = 'account_admin'
+    ad = 'ad'
+    facebook = 'facebook'
+    instagram = 'instagram'
+    page_admin = 'page_admin'
+    product = 'product'
+    seller = 'seller'
 
-    _field_types = {
-        'account_admin': 'map<string, string>',
-        'ad': 'map<string, string>',
-        'facebook': 'map<string, string>',
-        'instagram': 'map<string, string>',
-        'page_admin': 'map<string, string>',
-        'product': 'map<string, string>',
-        'seller': 'map<string, string>',
-    }
+  _field_types = {
+    'account_admin': 'map<string, string>',
+    'ad': 'map<string, string>',
+    'facebook': 'map<string, string>',
+    'instagram': 'map<string, string>',
+    'page_admin': 'map<string, string>',
+    'product': 'map<string, string>',
+    'seller': 'map<string, string>',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

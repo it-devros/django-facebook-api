@@ -29,31 +29,31 @@ pull request for this class.
 """
 
 class AdRuleEvaluationSpec(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdRuleEvaluationSpec, self).__init__()
-        self._isAdRuleEvaluationSpec = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdRuleEvaluationSpec, self).__init__()
+    self._isAdRuleEvaluationSpec = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        evaluation_type = 'evaluation_type'
-        filters = 'filters'
-        trigger = 'trigger'
+  class Field(AbstractObject.Field):
+    evaluation_type = 'evaluation_type'
+    filters = 'filters'
+    trigger = 'trigger'
 
-    class EvaluationType:
-        schedule = 'SCHEDULE'
-        trigger = 'TRIGGER'
+  class EvaluationType:
+    schedule = 'SCHEDULE'
+    trigger = 'TRIGGER'
 
-    _field_types = {
-        'evaluation_type': 'EvaluationType',
-        'filters': 'list<AdRuleFilters>',
-        'trigger': 'AdRuleTrigger',
-    }
+  _field_types = {
+    'evaluation_type': 'EvaluationType',
+    'filters': 'list<AdRuleFilters>',
+    'trigger': 'AdRuleTrigger',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['EvaluationType'] = AdRuleEvaluationSpec.EvaluationType.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['EvaluationType'] = AdRuleEvaluationSpec.EvaluationType.__dict__.values()
+    return field_enum_info

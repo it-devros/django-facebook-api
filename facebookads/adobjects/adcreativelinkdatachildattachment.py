@@ -29,42 +29,42 @@ pull request for this class.
 """
 
 class AdCreativeLinkDataChildAttachment(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativeLinkDataChildAttachment, self).__init__()
-        self._isAdCreativeLinkDataChildAttachment = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativeLinkDataChildAttachment, self).__init__()
+    self._isAdCreativeLinkDataChildAttachment = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        call_to_action = 'call_to_action'
-        caption = 'caption'
-        description = 'description'
-        image_crops = 'image_crops'
-        image_hash = 'image_hash'
-        link = 'link'
-        name = 'name'
-        picture = 'picture'
-        place_data = 'place_data'
-        static_card = 'static_card'
-        video_id = 'video_id'
+  class Field(AbstractObject.Field):
+    call_to_action = 'call_to_action'
+    caption = 'caption'
+    description = 'description'
+    image_crops = 'image_crops'
+    image_hash = 'image_hash'
+    link = 'link'
+    name = 'name'
+    picture = 'picture'
+    place_data = 'place_data'
+    static_card = 'static_card'
+    video_id = 'video_id'
 
-    _field_types = {
-        'call_to_action': 'AdCreativeLinkDataCallToAction',
-        'caption': 'string',
-        'description': 'string',
-        'image_crops': 'AdsImageCrops',
-        'image_hash': 'string',
-        'link': 'string',
-        'name': 'string',
-        'picture': 'string',
-        'place_data': 'AdCreativePlaceData',
-        'static_card': 'bool',
-        'video_id': 'string',
-    }
+  _field_types = {
+    'call_to_action': 'AdCreativeLinkDataCallToAction',
+    'caption': 'string',
+    'description': 'string',
+    'image_crops': 'AdsImageCrops',
+    'image_hash': 'string',
+    'link': 'string',
+    'name': 'string',
+    'picture': 'string',
+    'place_data': 'AdCreativePlaceData',
+    'static_card': 'bool',
+    'video_id': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

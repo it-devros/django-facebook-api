@@ -29,36 +29,36 @@ pull request for this class.
 """
 
 class CustomAudienceSession(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(CustomAudienceSession, self).__init__()
-        self._isCustomAudienceSession = True
-        self._api = api
+  def __init__(self, api=None):
+    super(CustomAudienceSession, self).__init__()
+    self._isCustomAudienceSession = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        end_time = 'end_time'
-        num_invalid_entries = 'num_invalid_entries'
-        num_matched = 'num_matched'
-        num_received = 'num_received'
-        progress = 'progress'
-        session_id = 'session_id'
-        stage = 'stage'
-        start_time = 'start_time'
+  class Field(AbstractObject.Field):
+    end_time = 'end_time'
+    num_invalid_entries = 'num_invalid_entries'
+    num_matched = 'num_matched'
+    num_received = 'num_received'
+    progress = 'progress'
+    session_id = 'session_id'
+    stage = 'stage'
+    start_time = 'start_time'
 
-    _field_types = {
-        'end_time': 'string',
-        'num_invalid_entries': 'string',
-        'num_matched': 'string',
-        'num_received': 'string',
-        'progress': 'string',
-        'session_id': 'string',
-        'stage': 'string',
-        'start_time': 'string',
-    }
+  _field_types = {
+    'end_time': 'string',
+    'num_invalid_entries': 'string',
+    'num_matched': 'string',
+    'num_received': 'string',
+    'progress': 'string',
+    'session_id': 'string',
+    'stage': 'string',
+    'start_time': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

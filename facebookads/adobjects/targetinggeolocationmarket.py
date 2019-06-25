@@ -29,28 +29,28 @@ pull request for this class.
 """
 
 class TargetingGeoLocationMarket(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(TargetingGeoLocationMarket, self).__init__()
-        self._isTargetingGeoLocationMarket = True
-        self._api = api
+  def __init__(self, api=None):
+    super(TargetingGeoLocationMarket, self).__init__()
+    self._isTargetingGeoLocationMarket = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        country = 'country'
-        key = 'key'
-        market_type = 'market_type'
-        name = 'name'
+  class Field(AbstractObject.Field):
+    country = 'country'
+    key = 'key'
+    market_type = 'market_type'
+    name = 'name'
 
-    _field_types = {
-        'country': 'string',
-        'key': 'string',
-        'market_type': 'string',
-        'name': 'string',
-    }
+  _field_types = {
+    'country': 'string',
+    'key': 'string',
+    'market_type': 'string',
+    'name': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

@@ -33,23 +33,23 @@ pull request for this class.
 """
 
 class BusinessAdAccountRequest(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isBusinessAdAccountRequest = True
-        super(BusinessAdAccountRequest, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isBusinessAdAccountRequest = True
+    super(BusinessAdAccountRequest, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        ad_account = 'ad_account'
-        id = 'id'
+  class Field(AbstractObject.Field):
+    ad_account = 'ad_account'
+    id = 'id'
 
-    _field_types = {
-        'ad_account': 'AdAccount',
-        'id': 'string',
-    }
+  _field_types = {
+    'ad_account': 'AdAccount',
+    'id': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

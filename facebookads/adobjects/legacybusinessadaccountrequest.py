@@ -33,25 +33,25 @@ pull request for this class.
 """
 
 class LegacyBusinessAdAccountRequest(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isLegacyBusinessAdAccountRequest = True
-        super(LegacyBusinessAdAccountRequest, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isLegacyBusinessAdAccountRequest = True
+    super(LegacyBusinessAdAccountRequest, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        ad_account = 'ad_account'
-        id = 'id'
-        permitted_roles = 'permitted_roles'
+  class Field(AbstractObject.Field):
+    ad_account = 'ad_account'
+    id = 'id'
+    permitted_roles = 'permitted_roles'
 
-    _field_types = {
-        'ad_account': 'AdAccount',
-        'id': 'string',
-        'permitted_roles': 'list<string>',
-    }
+  _field_types = {
+    'ad_account': 'AdAccount',
+    'id': 'string',
+    'permitted_roles': 'list<string>',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

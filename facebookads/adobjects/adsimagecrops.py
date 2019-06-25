@@ -29,34 +29,34 @@ pull request for this class.
 """
 
 class AdsImageCrops(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdsImageCrops, self).__init__()
-        self._isAdsImageCrops = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdsImageCrops, self).__init__()
+    self._isAdsImageCrops = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        field_100x100 = '100x100'
-        field_100x72 = '100x72'
-        field_191x100 = '191x100'
-        field_400x150 = '400x150'
-        field_400x500 = '400x500'
-        field_600x360 = '600x360'
-        field_90x160 = '90x160'
+  class Field(AbstractObject.Field):
+    field_100x100 = '100x100'
+    field_100x72 = '100x72'
+    field_191x100 = '191x100'
+    field_400x150 = '400x150'
+    field_400x500 = '400x500'
+    field_600x360 = '600x360'
+    field_90x160 = '90x160'
 
-    _field_types = {
-        '100x100': 'list<list>',
-        '100x72': 'list<list>',
-        '191x100': 'list<list>',
-        '400x150': 'list<list>',
-        '400x500': 'list<list>',
-        '600x360': 'list<list>',
-        '90x160': 'list<list>',
-    }
+  _field_types = {
+    '100x100': 'list<list>',
+    '100x72': 'list<list>',
+    '191x100': 'list<list>',
+    '400x150': 'list<list>',
+    '400x500': 'list<list>',
+    '600x360': 'list<list>',
+    '90x160': 'list<list>',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

@@ -33,221 +33,221 @@ pull request for this class.
 """
 
 class OffsitePixel(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isOffsitePixel = True
-        super(OffsitePixel, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isOffsitePixel = True
+    super(OffsitePixel, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        creator = 'creator'
-        id = 'id'
-        js_pixel = 'js_pixel'
-        last_firing_time = 'last_firing_time'
-        name = 'name'
-        tag = 'tag'
+  class Field(AbstractObject.Field):
+    creator = 'creator'
+    id = 'id'
+    js_pixel = 'js_pixel'
+    last_firing_time = 'last_firing_time'
+    name = 'name'
+    tag = 'tag'
 
-    class Tag:
-        checkout = 'CHECKOUT'
-        registration = 'REGISTRATION'
-        lead = 'LEAD'
-        key_page_view = 'KEY_PAGE_VIEW'
-        add_to_cart = 'ADD_TO_CART'
-        other = 'OTHER'
+  class Tag:
+    checkout = 'CHECKOUT'
+    registration = 'REGISTRATION'
+    lead = 'LEAD'
+    key_page_view = 'KEY_PAGE_VIEW'
+    add_to_cart = 'ADD_TO_CART'
+    other = 'OTHER'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'offsitepixels'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'offsitepixels'
 
-    def api_create(self, parent_id, fields=None, params=None, batch=None, pending=False):
-        from facebookads.adobjects.adaccount import AdAccount
-        return AdAccount(api=self._api, fbid=parent_id).create_offsite_pixel(fields, params, batch, pending)
+  def api_create(self, parent_id, fields=None, params=None, batch=None, pending=False):
+    from facebookads.adobjects.adaccount import AdAccount
+    return AdAccount(api=self._api, fbid=parent_id).create_offsite_pixel(fields, params, batch, pending)
 
-    def api_delete(self, fields=None, params=None, batch=None, pending=False):
-        param_types = {
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='DELETE',
-            endpoint='/',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AbstractCrudObject,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def api_get(self, fields=None, params=None, batch=None, pending=False):
-        param_types = {
-            'value': 'unsigned int',
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='GET',
-            endpoint='/',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=OffsitePixel,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def api_update(self, fields=None, params=None, batch=None, pending=False):
-        param_types = {
-            'app_event': 'string',
-            'app_id_for_app_event_firing': 'int',
-            'name': 'string',
-            'tag': 'tag_enum',
-        }
-        enums = {
-            'tag_enum': OffsitePixel.Tag.__dict__.values(),
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='POST',
-            endpoint='/',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=OffsitePixel,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def delete_ad_accounts(self, fields=None, params=None, batch=None, pending=False):
-        param_types = {
-            'adaccounts': 'list<string>',
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='DELETE',
-            endpoint='/adaccounts',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AbstractCrudObject,
-            api_type='EDGE',
-            response_parser=ObjectParser(target_class=AbstractCrudObject, api=self._api),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def get_ad_accounts(self, fields=None, params=None, batch=None, pending=False):
-        from facebookads.adobjects.adaccount import AdAccount
-        param_types = {
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='GET',
-            endpoint='/adaccounts',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AdAccount,
-            api_type='EDGE',
-            response_parser=ObjectParser(target_class=AdAccount, api=self._api),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def create_ad_account(self, fields=None, params=None, batch=None, pending=False):
-        from facebookads.adobjects.adaccount import AdAccount
-        param_types = {
-            'adaccounts': 'list<string>',
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='POST',
-            endpoint='/adaccounts',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AdAccount,
-            api_type='EDGE',
-            response_parser=ObjectParser(target_class=AdAccount, api=self._api),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    _field_types = {
-        'creator': 'string',
-        'id': 'string',
-        'js_pixel': 'string',
-        'last_firing_time': 'datetime',
-        'name': 'string',
-        'tag': 'string',
+  def api_delete(self, fields=None, params=None, batch=None, pending=False):
+    param_types = {
     }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='DELETE',
+      endpoint='/',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=AbstractCrudObject,
+      api_type='NODE',
+      response_parser=ObjectParser(reuse_object=self),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['Tag'] = OffsitePixel.Tag.__dict__.values()
-        return field_enum_info
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  def api_get(self, fields=None, params=None, batch=None, pending=False):
+    param_types = {
+      'value': 'unsigned int',
+    }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='GET',
+      endpoint='/',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=OffsitePixel,
+      api_type='NODE',
+      response_parser=ObjectParser(reuse_object=self),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
+
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  def api_update(self, fields=None, params=None, batch=None, pending=False):
+    param_types = {
+      'app_event': 'string',
+      'app_id_for_app_event_firing': 'int',
+      'name': 'string',
+      'tag': 'tag_enum',
+    }
+    enums = {
+      'tag_enum': OffsitePixel.Tag.__dict__.values(),
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='POST',
+      endpoint='/',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=OffsitePixel,
+      api_type='NODE',
+      response_parser=ObjectParser(reuse_object=self),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
+
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  def delete_ad_accounts(self, fields=None, params=None, batch=None, pending=False):
+    param_types = {
+      'adaccounts': 'list<string>',
+    }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='DELETE',
+      endpoint='/adaccounts',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=AbstractCrudObject,
+      api_type='EDGE',
+      response_parser=ObjectParser(target_class=AbstractCrudObject, api=self._api),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
+
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  def get_ad_accounts(self, fields=None, params=None, batch=None, pending=False):
+    from facebookads.adobjects.adaccount import AdAccount
+    param_types = {
+    }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='GET',
+      endpoint='/adaccounts',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=AdAccount,
+      api_type='EDGE',
+      response_parser=ObjectParser(target_class=AdAccount, api=self._api),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
+
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  def create_ad_account(self, fields=None, params=None, batch=None, pending=False):
+    from facebookads.adobjects.adaccount import AdAccount
+    param_types = {
+      'adaccounts': 'list<string>',
+    }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='POST',
+      endpoint='/adaccounts',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=AdAccount,
+      api_type='EDGE',
+      response_parser=ObjectParser(target_class=AdAccount, api=self._api),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
+
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  _field_types = {
+    'creator': 'string',
+    'id': 'string',
+    'js_pixel': 'string',
+    'last_firing_time': 'datetime',
+    'name': 'string',
+    'tag': 'string',
+  }
+
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['Tag'] = OffsitePixel.Tag.__dict__.values()
+    return field_enum_info

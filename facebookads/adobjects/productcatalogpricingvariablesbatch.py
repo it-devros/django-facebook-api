@@ -33,52 +33,52 @@ pull request for this class.
 """
 
 class ProductCatalogPricingVariablesBatch(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isProductCatalogPricingVariablesBatch = True
-        super(ProductCatalogPricingVariablesBatch, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isProductCatalogPricingVariablesBatch = True
+    super(ProductCatalogPricingVariablesBatch, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        errors = 'errors'
-        errors_total_count = 'errors_total_count'
-        handle = 'handle'
-        status = 'status'
-        file = 'file'
-        password = 'password'
-        standard = 'standard'
-        update_only = 'update_only'
-        url = 'url'
-        username = 'username'
+  class Field(AbstractObject.Field):
+    errors = 'errors'
+    errors_total_count = 'errors_total_count'
+    handle = 'handle'
+    status = 'status'
+    file = 'file'
+    password = 'password'
+    standard = 'standard'
+    update_only = 'update_only'
+    url = 'url'
+    username = 'username'
 
-    class Standard:
-        google = 'google'
+  class Standard:
+    google = 'google'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'pricing_variables_batch'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'pricing_variables_batch'
 
-    def api_create(self, parent_id, fields=None, params=None, batch=None, pending=False):
-        from facebookads.adobjects.productcatalog import ProductCatalog
-        return ProductCatalog(api=self._api, fbid=parent_id).create_pricing_variables_batch(fields, params, batch, pending)
+  def api_create(self, parent_id, fields=None, params=None, batch=None, pending=False):
+    from facebookads.adobjects.productcatalog import ProductCatalog
+    return ProductCatalog(api=self._api, fbid=parent_id).create_pricing_variables_batch(fields, params, batch, pending)
 
-    _field_types = {
-        'errors': 'list<Object>',
-        'errors_total_count': 'int',
-        'handle': 'string',
-        'status': 'string',
-        'file': 'file',
-        'password': 'string',
-        'standard': 'Standard',
-        'update_only': 'bool',
-        'url': 'string',
-        'username': 'string',
-    }
+  _field_types = {
+    'errors': 'list<Object>',
+    'errors_total_count': 'int',
+    'handle': 'string',
+    'status': 'string',
+    'file': 'file',
+    'password': 'string',
+    'standard': 'Standard',
+    'update_only': 'bool',
+    'url': 'string',
+    'username': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['Standard'] = ProductCatalogPricingVariablesBatch.Standard.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['Standard'] = ProductCatalogPricingVariablesBatch.Standard.__dict__.values()
+    return field_enum_info

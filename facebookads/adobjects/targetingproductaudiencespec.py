@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class TargetingProductAudienceSpec(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(TargetingProductAudienceSpec, self).__init__()
-        self._isTargetingProductAudienceSpec = True
-        self._api = api
+  def __init__(self, api=None):
+    super(TargetingProductAudienceSpec, self).__init__()
+    self._isTargetingProductAudienceSpec = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        exclusions = 'exclusions'
-        inclusions = 'inclusions'
-        product_set_id = 'product_set_id'
+  class Field(AbstractObject.Field):
+    exclusions = 'exclusions'
+    inclusions = 'inclusions'
+    product_set_id = 'product_set_id'
 
-    _field_types = {
-        'exclusions': 'list<TargetingProductAudienceSubSpec>',
-        'inclusions': 'list<TargetingProductAudienceSubSpec>',
-        'product_set_id': 'string',
-    }
+  _field_types = {
+    'exclusions': 'list<TargetingProductAudienceSubSpec>',
+    'inclusions': 'list<TargetingProductAudienceSubSpec>',
+    'product_set_id': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

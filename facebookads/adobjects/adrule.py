@@ -33,174 +33,174 @@ pull request for this class.
 """
 
 class AdRule(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isAdRule = True
-        super(AdRule, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isAdRule = True
+    super(AdRule, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        account_id = 'account_id'
-        created_by = 'created_by'
-        created_time = 'created_time'
-        evaluation_spec = 'evaluation_spec'
-        execution_spec = 'execution_spec'
-        id = 'id'
-        name = 'name'
-        schedule_spec = 'schedule_spec'
-        status = 'status'
-        updated_time = 'updated_time'
+  class Field(AbstractObject.Field):
+    account_id = 'account_id'
+    created_by = 'created_by'
+    created_time = 'created_time'
+    evaluation_spec = 'evaluation_spec'
+    execution_spec = 'execution_spec'
+    id = 'id'
+    name = 'name'
+    schedule_spec = 'schedule_spec'
+    status = 'status'
+    updated_time = 'updated_time'
 
-    class Status:
-        enabled = 'ENABLED'
-        disabled = 'DISABLED'
-        deleted = 'DELETED'
+  class Status:
+    enabled = 'ENABLED'
+    disabled = 'DISABLED'
+    deleted = 'DELETED'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'adrules_library'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'adrules_library'
 
-    def api_create(self, parent_id, fields=None, params=None, batch=None, pending=False):
-        from facebookads.adobjects.adaccount import AdAccount
-        return AdAccount(api=self._api, fbid=parent_id).create_ad_rules_library(fields, params, batch, pending)
+  def api_create(self, parent_id, fields=None, params=None, batch=None, pending=False):
+    from facebookads.adobjects.adaccount import AdAccount
+    return AdAccount(api=self._api, fbid=parent_id).create_ad_rules_library(fields, params, batch, pending)
 
-    def api_delete(self, fields=None, params=None, batch=None, pending=False):
-        param_types = {
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='DELETE',
-            endpoint='/',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AbstractCrudObject,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def api_get(self, fields=None, params=None, batch=None, pending=False):
-        param_types = {
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='GET',
-            endpoint='/',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AdRule,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def api_update(self, fields=None, params=None, batch=None, pending=False):
-        param_types = {
-            'evaluation_spec': 'Object',
-            'execution_spec': 'Object',
-            'name': 'string',
-            'reset_period': 'int',
-            'schedule_spec': 'Object',
-            'status': 'status_enum',
-        }
-        enums = {
-            'status_enum': AdRule.Status.__dict__.values(),
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='POST',
-            endpoint='/',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AdRule,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def get_history(self, fields=None, params=None, batch=None, pending=False):
-        from facebookads.adobjects.adrulehistory import AdRuleHistory
-        param_types = {
-            'action': 'action_enum',
-            'hide_no_changes': 'bool',
-            'object_id': 'string',
-        }
-        enums = {
-            'action_enum': AdRuleHistory.Action.__dict__.values(),
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='GET',
-            endpoint='/history',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AdRuleHistory,
-            api_type='EDGE',
-            response_parser=ObjectParser(target_class=AdRuleHistory, api=self._api),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    _field_types = {
-        'account_id': 'string',
-        'created_by': 'User',
-        'created_time': 'datetime',
-        'evaluation_spec': 'AdRuleEvaluationSpec',
-        'execution_spec': 'AdRuleExecutionSpec',
-        'id': 'string',
-        'name': 'string',
-        'schedule_spec': 'AdRuleScheduleSpec',
-        'status': 'string',
-        'updated_time': 'datetime',
+  def api_delete(self, fields=None, params=None, batch=None, pending=False):
+    param_types = {
     }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='DELETE',
+      endpoint='/',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=AbstractCrudObject,
+      api_type='NODE',
+      response_parser=ObjectParser(reuse_object=self),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['Status'] = AdRule.Status.__dict__.values()
-        return field_enum_info
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  def api_get(self, fields=None, params=None, batch=None, pending=False):
+    param_types = {
+    }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='GET',
+      endpoint='/',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=AdRule,
+      api_type='NODE',
+      response_parser=ObjectParser(reuse_object=self),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
+
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  def api_update(self, fields=None, params=None, batch=None, pending=False):
+    param_types = {
+      'evaluation_spec': 'Object',
+      'execution_spec': 'Object',
+      'name': 'string',
+      'reset_period': 'int',
+      'schedule_spec': 'Object',
+      'status': 'status_enum',
+    }
+    enums = {
+      'status_enum': AdRule.Status.__dict__.values(),
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='POST',
+      endpoint='/',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=AdRule,
+      api_type='NODE',
+      response_parser=ObjectParser(reuse_object=self),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
+
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  def get_history(self, fields=None, params=None, batch=None, pending=False):
+    from facebookads.adobjects.adrulehistory import AdRuleHistory
+    param_types = {
+      'action': 'action_enum',
+      'hide_no_changes': 'bool',
+      'object_id': 'string',
+    }
+    enums = {
+      'action_enum': AdRuleHistory.Action.__dict__.values(),
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='GET',
+      endpoint='/history',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=AdRuleHistory,
+      api_type='EDGE',
+      response_parser=ObjectParser(target_class=AdRuleHistory, api=self._api),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
+
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  _field_types = {
+    'account_id': 'string',
+    'created_by': 'User',
+    'created_time': 'datetime',
+    'evaluation_spec': 'AdRuleEvaluationSpec',
+    'execution_spec': 'AdRuleExecutionSpec',
+    'id': 'string',
+    'name': 'string',
+    'schedule_spec': 'AdRuleScheduleSpec',
+    'status': 'string',
+    'updated_time': 'datetime',
+  }
+
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['Status'] = AdRule.Status.__dict__.values()
+    return field_enum_info

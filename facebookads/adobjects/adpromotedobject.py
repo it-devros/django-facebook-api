@@ -29,58 +29,58 @@ pull request for this class.
 """
 
 class AdPromotedObject(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdPromotedObject, self).__init__()
-        self._isAdPromotedObject = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdPromotedObject, self).__init__()
+    self._isAdPromotedObject = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        application_id = 'application_id'
-        custom_event_type = 'custom_event_type'
-        event_id = 'event_id'
-        object_store_url = 'object_store_url'
-        offer_id = 'offer_id'
-        page_id = 'page_id'
-        pixel_id = 'pixel_id'
-        place_page_set_id = 'place_page_set_id'
-        product_catalog_id = 'product_catalog_id'
-        product_set_id = 'product_set_id'
+  class Field(AbstractObject.Field):
+    application_id = 'application_id'
+    custom_event_type = 'custom_event_type'
+    event_id = 'event_id'
+    object_store_url = 'object_store_url'
+    offer_id = 'offer_id'
+    page_id = 'page_id'
+    pixel_id = 'pixel_id'
+    place_page_set_id = 'place_page_set_id'
+    product_catalog_id = 'product_catalog_id'
+    product_set_id = 'product_set_id'
 
-    class CustomEventType:
-        complete_registration = 'COMPLETE_REGISTRATION'
-        content_view = 'CONTENT_VIEW'
-        search = 'SEARCH'
-        rate = 'RATE'
-        tutorial_completion = 'TUTORIAL_COMPLETION'
-        add_to_cart = 'ADD_TO_CART'
-        add_to_wishlist = 'ADD_TO_WISHLIST'
-        initiated_checkout = 'INITIATED_CHECKOUT'
-        add_payment_info = 'ADD_PAYMENT_INFO'
-        purchase = 'PURCHASE'
-        lead = 'LEAD'
-        level_achieved = 'LEVEL_ACHIEVED'
-        achievement_unlocked = 'ACHIEVEMENT_UNLOCKED'
-        spent_credits = 'SPENT_CREDITS'
-        other = 'OTHER'
+  class CustomEventType:
+    complete_registration = 'COMPLETE_REGISTRATION'
+    content_view = 'CONTENT_VIEW'
+    search = 'SEARCH'
+    rate = 'RATE'
+    tutorial_completion = 'TUTORIAL_COMPLETION'
+    add_to_cart = 'ADD_TO_CART'
+    add_to_wishlist = 'ADD_TO_WISHLIST'
+    initiated_checkout = 'INITIATED_CHECKOUT'
+    add_payment_info = 'ADD_PAYMENT_INFO'
+    purchase = 'PURCHASE'
+    lead = 'LEAD'
+    level_achieved = 'LEVEL_ACHIEVED'
+    achievement_unlocked = 'ACHIEVEMENT_UNLOCKED'
+    spent_credits = 'SPENT_CREDITS'
+    other = 'OTHER'
 
-    _field_types = {
-        'application_id': 'string',
-        'custom_event_type': 'CustomEventType',
-        'event_id': 'string',
-        'object_store_url': 'string',
-        'offer_id': 'string',
-        'page_id': 'string',
-        'pixel_id': 'string',
-        'place_page_set_id': 'string',
-        'product_catalog_id': 'string',
-        'product_set_id': 'string',
-    }
+  _field_types = {
+    'application_id': 'string',
+    'custom_event_type': 'CustomEventType',
+    'event_id': 'string',
+    'object_store_url': 'string',
+    'offer_id': 'string',
+    'page_id': 'string',
+    'pixel_id': 'string',
+    'place_page_set_id': 'string',
+    'product_catalog_id': 'string',
+    'product_set_id': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['CustomEventType'] = AdPromotedObject.CustomEventType.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['CustomEventType'] = AdPromotedObject.CustomEventType.__dict__.values()
+    return field_enum_info

@@ -8,14 +8,14 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('dashboard', '0003_performance'),
-    ]
+  dependencies = [
+    ('dashboard', '0003_performance'),
+  ]
 
-    operations = [
-        migrations.AlterField(
-            model_name='performance',
-            name='adaccount',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='dashboard.Adaccount'),
-        ),
-    ]
+  operations = [
+    migrations.AlterField(
+      model_name='performance',
+      name='adaccount',
+      field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='dashboard.Adaccount'),
+    ),
+  ]

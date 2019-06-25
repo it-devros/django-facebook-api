@@ -30,47 +30,47 @@ pull request for this class.
 """
 
 class AdPreview(
-    AdPreviewMixin,
-    AbstractObject,
+  AdPreviewMixin,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdPreview, self).__init__()
-        self._isAdPreview = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdPreview, self).__init__()
+    self._isAdPreview = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        body = 'body'
+  class Field(AbstractObject.Field):
+    body = 'body'
 
-    class AdFormat:
-        right_column_standard = 'RIGHT_COLUMN_STANDARD'
-        desktop_feed_standard = 'DESKTOP_FEED_STANDARD'
-        mobile_feed_standard = 'MOBILE_FEED_STANDARD'
-        mobile_feed_basic = 'MOBILE_FEED_BASIC'
-        mobile_interstitial = 'MOBILE_INTERSTITIAL'
-        mobile_banner = 'MOBILE_BANNER'
-        mobile_medium_rectangle = 'MOBILE_MEDIUM_RECTANGLE'
-        mobile_fullwidth = 'MOBILE_FULLWIDTH'
-        mobile_native = 'MOBILE_NATIVE'
-        instagram_standard = 'INSTAGRAM_STANDARD'
-        audience_network_outstream_video = 'AUDIENCE_NETWORK_OUTSTREAM_VIDEO'
-        instant_article_standard = 'INSTANT_ARTICLE_STANDARD'
-        instream_video_desktop = 'INSTREAM_VIDEO_DESKTOP'
-        instream_video_mobile = 'INSTREAM_VIDEO_MOBILE'
-        suggested_video_desktop = 'SUGGESTED_VIDEO_DESKTOP'
-        suggested_video_mobile = 'SUGGESTED_VIDEO_MOBILE'
+  class AdFormat:
+    right_column_standard = 'RIGHT_COLUMN_STANDARD'
+    desktop_feed_standard = 'DESKTOP_FEED_STANDARD'
+    mobile_feed_standard = 'MOBILE_FEED_STANDARD'
+    mobile_feed_basic = 'MOBILE_FEED_BASIC'
+    mobile_interstitial = 'MOBILE_INTERSTITIAL'
+    mobile_banner = 'MOBILE_BANNER'
+    mobile_medium_rectangle = 'MOBILE_MEDIUM_RECTANGLE'
+    mobile_fullwidth = 'MOBILE_FULLWIDTH'
+    mobile_native = 'MOBILE_NATIVE'
+    instagram_standard = 'INSTAGRAM_STANDARD'
+    audience_network_outstream_video = 'AUDIENCE_NETWORK_OUTSTREAM_VIDEO'
+    instant_article_standard = 'INSTANT_ARTICLE_STANDARD'
+    instream_video_desktop = 'INSTREAM_VIDEO_DESKTOP'
+    instream_video_mobile = 'INSTREAM_VIDEO_MOBILE'
+    suggested_video_desktop = 'SUGGESTED_VIDEO_DESKTOP'
+    suggested_video_mobile = 'SUGGESTED_VIDEO_MOBILE'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'previews'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'previews'
 
-    _field_types = {
-        'body': 'string',
-    }
+  _field_types = {
+    'body': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['AdFormat'] = AdPreview.AdFormat.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['AdFormat'] = AdPreview.AdFormat.__dict__.values()
+    return field_enum_info

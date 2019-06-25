@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class DeliveryCheckExtraInfo(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(DeliveryCheckExtraInfo, self).__init__()
-        self._isDeliveryCheckExtraInfo = True
-        self._api = api
+  def __init__(self, api=None):
+    super(DeliveryCheckExtraInfo, self).__init__()
+    self._isDeliveryCheckExtraInfo = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        adgroup_ids = 'adgroup_ids'
-        campaign_ids = 'campaign_ids'
-        countries = 'countries'
+  class Field(AbstractObject.Field):
+    adgroup_ids = 'adgroup_ids'
+    campaign_ids = 'campaign_ids'
+    countries = 'countries'
 
-    _field_types = {
-        'adgroup_ids': 'list<string>',
-        'campaign_ids': 'list<string>',
-        'countries': 'list<string>',
-    }
+  _field_types = {
+    'adgroup_ids': 'list<string>',
+    'campaign_ids': 'list<string>',
+    'countries': 'list<string>',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

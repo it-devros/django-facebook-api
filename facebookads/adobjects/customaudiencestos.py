@@ -33,25 +33,25 @@ pull request for this class.
 """
 
 class CustomAudiencesTOS(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isCustomAudiencesTOS = True
-        super(CustomAudiencesTOS, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isCustomAudiencesTOS = True
+    super(CustomAudiencesTOS, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        content = 'content'
-        id = 'id'
-        type = 'type'
+  class Field(AbstractObject.Field):
+    content = 'content'
+    id = 'id'
+    type = 'type'
 
-    _field_types = {
-        'content': 'string',
-        'id': 'string',
-        'type': 'string',
-    }
+  _field_types = {
+    'content': 'string',
+    'id': 'string',
+    'type': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

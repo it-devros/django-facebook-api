@@ -29,28 +29,28 @@ pull request for this class.
 """
 
 class AdsPixelStats(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdsPixelStats, self).__init__()
-        self._isAdsPixelStats = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdsPixelStats, self).__init__()
+    self._isAdsPixelStats = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        count = 'count'
-        diagnostics_hourly_last_timestamp = 'diagnostics_hourly_last_timestamp'
-        event = 'event'
-        value = 'value'
+  class Field(AbstractObject.Field):
+    count = 'count'
+    diagnostics_hourly_last_timestamp = 'diagnostics_hourly_last_timestamp'
+    event = 'event'
+    value = 'value'
 
-    _field_types = {
-        'count': 'int',
-        'diagnostics_hourly_last_timestamp': 'datetime',
-        'event': 'string',
-        'value': 'string',
-    }
+  _field_types = {
+    'count': 'int',
+    'diagnostics_hourly_last_timestamp': 'datetime',
+    'event': 'string',
+    'value': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

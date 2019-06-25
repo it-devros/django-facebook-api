@@ -29,38 +29,38 @@ pull request for this class.
 """
 
 class AdAssetFeedSpecTargetRule(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdAssetFeedSpecTargetRule, self).__init__()
-        self._isAdAssetFeedSpecTargetRule = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdAssetFeedSpecTargetRule, self).__init__()
+    self._isAdAssetFeedSpecTargetRule = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        body_label = 'body_label'
-        call_to_action_type_label = 'call_to_action_type_label'
-        caption_label = 'caption_label'
-        description_label = 'description_label'
-        image_label = 'image_label'
-        link_url_label = 'link_url_label'
-        targeting = 'targeting'
-        title_label = 'title_label'
-        video_label = 'video_label'
+  class Field(AbstractObject.Field):
+    body_label = 'body_label'
+    call_to_action_type_label = 'call_to_action_type_label'
+    caption_label = 'caption_label'
+    description_label = 'description_label'
+    image_label = 'image_label'
+    link_url_label = 'link_url_label'
+    targeting = 'targeting'
+    title_label = 'title_label'
+    video_label = 'video_label'
 
-    _field_types = {
-        'body_label': 'AdAssetFeedSpecAssetLabel',
-        'call_to_action_type_label': 'AdAssetFeedSpecAssetLabel',
-        'caption_label': 'AdAssetFeedSpecAssetLabel',
-        'description_label': 'AdAssetFeedSpecAssetLabel',
-        'image_label': 'AdAssetFeedSpecAssetLabel',
-        'link_url_label': 'AdAssetFeedSpecAssetLabel',
-        'targeting': 'Object',
-        'title_label': 'AdAssetFeedSpecAssetLabel',
-        'video_label': 'AdAssetFeedSpecAssetLabel',
-    }
+  _field_types = {
+    'body_label': 'AdAssetFeedSpecAssetLabel',
+    'call_to_action_type_label': 'AdAssetFeedSpecAssetLabel',
+    'caption_label': 'AdAssetFeedSpecAssetLabel',
+    'description_label': 'AdAssetFeedSpecAssetLabel',
+    'image_label': 'AdAssetFeedSpecAssetLabel',
+    'link_url_label': 'AdAssetFeedSpecAssetLabel',
+    'targeting': 'Object',
+    'title_label': 'AdAssetFeedSpecAssetLabel',
+    'video_label': 'AdAssetFeedSpecAssetLabel',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

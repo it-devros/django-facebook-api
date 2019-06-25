@@ -29,24 +29,24 @@ pull request for this class.
 """
 
 class RoasCohortsPerCohortIntervalUnit(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(RoasCohortsPerCohortIntervalUnit, self).__init__()
-        self._isRoasCohortsPerCohortIntervalUnit = True
-        self._api = api
+  def __init__(self, api=None):
+    super(RoasCohortsPerCohortIntervalUnit, self).__init__()
+    self._isRoasCohortsPerCohortIntervalUnit = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        interval_start = 'interval_start'
-        revenue = 'revenue'
+  class Field(AbstractObject.Field):
+    interval_start = 'interval_start'
+    revenue = 'revenue'
 
-    _field_types = {
-        'interval_start': 'string',
-        'revenue': 'float',
-    }
+  _field_types = {
+    'interval_start': 'string',
+    'revenue': 'float',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

@@ -33,21 +33,21 @@ pull request for this class.
 """
 
 class CustomAudienceAdAccount(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isCustomAudienceAdAccount = True
-        super(CustomAudienceAdAccount, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isCustomAudienceAdAccount = True
+    super(CustomAudienceAdAccount, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        id = 'id'
+  class Field(AbstractObject.Field):
+    id = 'id'
 
-    _field_types = {
-        'id': 'string',
-    }
+  _field_types = {
+    'id': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

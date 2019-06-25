@@ -21,76 +21,76 @@
 from facebookads.adobjects import agencyclientdeclaration
 
 class AdAccountMixin:
-    class AccountStatus(object):
-        active = 1
-        disabled = 2
-        in_grace_period = 9
-        pending_closure = 100
-        pending_review = 7
-        temporarily_unavailable = 101
-        unsettled = 3
+  class AccountStatus(object):
+    active = 1
+    disabled = 2
+    in_grace_period = 9
+    pending_closure = 100
+    pending_review = 7
+    temporarily_unavailable = 101
+    unsettled = 3
 
-    class AgencyClientDeclaration(agencyclientdeclaration.AgencyClientDeclaration.Field):
-        pass
+  class AgencyClientDeclaration(agencyclientdeclaration.AgencyClientDeclaration.Field):
+    pass
 
-    class Capabilities(object):
-        bulk_account = 'BULK_ACCOUNT'
-        can_create_lookalikes_with_custom_ratio = ('CAN_CREATE_LOOKALIKES'
-                                                   '_WITH_CUSTOM_RATIO')
-        can_use_conversion_lookalikes = 'CAN_USE_CONVERSION_LOOKALIKES'
-        can_use_reach_and_frequency = 'CAN_USE_REACH_AND_FREQUENCY'
-        custom_audiences_folders = 'CUSTOM_AUDIENCES_FOLDERS'
-        custom_audiences_opt_out_link = 'CUSTOM_AUDENCES_OPT_OUT_LINK'
-        custom_cluster_sharing = 'CUSTOM_CLUSTER_SHARING'
-        direct_sales = 'DIRECT_SALES'
-        has_available_payment_methods = 'HAS_AVAILABLE_PAYMENT_METHODS'
-        holdout_view_tags = 'HOLDOUT_VIEW_TAGS'
-        lookalike_audience = 'LOOKALIKE_AUDIENCE'
-        new_campaign_structure = 'NEW_CAMPAIGN_STRUCTURE'
-        premium = 'PREMIUM'
-        view_tags = 'VIEW_TAGS'
+  class Capabilities(object):
+    bulk_account = 'BULK_ACCOUNT'
+    can_create_lookalikes_with_custom_ratio = ('CAN_CREATE_LOOKALIKES'
+                           '_WITH_CUSTOM_RATIO')
+    can_use_conversion_lookalikes = 'CAN_USE_CONVERSION_LOOKALIKES'
+    can_use_reach_and_frequency = 'CAN_USE_REACH_AND_FREQUENCY'
+    custom_audiences_folders = 'CUSTOM_AUDIENCES_FOLDERS'
+    custom_audiences_opt_out_link = 'CUSTOM_AUDENCES_OPT_OUT_LINK'
+    custom_cluster_sharing = 'CUSTOM_CLUSTER_SHARING'
+    direct_sales = 'DIRECT_SALES'
+    has_available_payment_methods = 'HAS_AVAILABLE_PAYMENT_METHODS'
+    holdout_view_tags = 'HOLDOUT_VIEW_TAGS'
+    lookalike_audience = 'LOOKALIKE_AUDIENCE'
+    new_campaign_structure = 'NEW_CAMPAIGN_STRUCTURE'
+    premium = 'PREMIUM'
+    view_tags = 'VIEW_TAGS'
 
-    class TaxIdStatus(object):
-        account_is_personal = 5
-        offline_vat_validation_failed = 4
-        unknown = 0
-        vat_information_required = 3
-        vat_not_required = 1
+  class TaxIdStatus(object):
+    account_is_personal = 5
+    offline_vat_validation_failed = 4
+    unknown = 0
+    vat_information_required = 3
+    vat_not_required = 1
 
-    @classmethod
-    def get_my_account(cls, api=None):
-        from facebookads.adobjects.adaccountuser import AdAccountUser
-        """Returns first AdAccount associated with 'me' given api instance."""
-        # Setup user and read the object from the server
-        me = AdAccountUser(fbid='me', api=api)
+  @classmethod
+  def get_my_account(cls, api=None):
+    from facebookads.adobjects.adaccountuser import AdAccountUser
+    """Returns first AdAccount associated with 'me' given api instance."""
+    # Setup user and read the object from the server
+    me = AdAccountUser(fbid='me', api=api)
 
-        # Get first account connected to the user
-        my_account = me.edge_object(cls)
+    # Get first account connected to the user
+    my_account = me.edge_object(cls)
 
-        return my_account
+    return my_account
 
-    def opt_out_user_from_targeting(self,
-                                    schema,
-                                    users,
-                                    is_raw=False,
-                                    app_ids=None,
-                                    pre_hashed=None):
-        from facebookads.adobjects.customaudience import CustomAudience
-        """Opts out users from being targeted by this ad account.
+  def opt_out_user_from_targeting(self,
+                  schema,
+                  users,
+                  is_raw=False,
+                  app_ids=None,
+                  pre_hashed=None):
+    from facebookads.adobjects.customaudience import CustomAudience
+    """Opts out users from being targeted by this ad account.
 
-        Args:
-            schema: A CustomAudience.Schema value
-            users: a list of identites that follow the schema given
+    Args:
+      schema: A CustomAudience.Schema value
+      users: a list of identites that follow the schema given
 
-        Returns:
-            Return FacebookResponse object
-        """
-        return self.get_api_assured().call(
-            'DELETE',
-            (self.get_id_assured(), 'usersofanyaudience'),
-            params=CustomAudience.format_params(schema,
-                                                users,
-                                                is_raw,
-                                                app_ids,
-                                                pre_hashed),
-        )
+    Returns:
+      Return FacebookResponse object
+    """
+    return self.get_api_assured().call(
+      'DELETE',
+      (self.get_id_assured(), 'usersofanyaudience'),
+      params=CustomAudience.format_params(schema,
+                        users,
+                        is_raw,
+                        app_ids,
+                        pre_hashed),
+    )

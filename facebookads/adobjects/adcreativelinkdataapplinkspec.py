@@ -29,28 +29,28 @@ pull request for this class.
 """
 
 class AdCreativeLinkDataAppLinkSpec(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativeLinkDataAppLinkSpec, self).__init__()
-        self._isAdCreativeLinkDataAppLinkSpec = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativeLinkDataAppLinkSpec, self).__init__()
+    self._isAdCreativeLinkDataAppLinkSpec = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        android = 'android'
-        ios = 'ios'
-        ipad = 'ipad'
-        iphone = 'iphone'
+  class Field(AbstractObject.Field):
+    android = 'android'
+    ios = 'ios'
+    ipad = 'ipad'
+    iphone = 'iphone'
 
-    _field_types = {
-        'android': 'list<AndroidAppLink>',
-        'ios': 'list<IosAppLink>',
-        'ipad': 'list<IosAppLink>',
-        'iphone': 'list<IosAppLink>',
-    }
+  _field_types = {
+    'android': 'list<AndroidAppLink>',
+    'ios': 'list<IosAppLink>',
+    'ipad': 'list<IosAppLink>',
+    'iphone': 'list<IosAppLink>',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

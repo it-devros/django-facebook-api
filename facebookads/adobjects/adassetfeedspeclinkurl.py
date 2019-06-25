@@ -29,30 +29,30 @@ pull request for this class.
 """
 
 class AdAssetFeedSpecLinkURL(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdAssetFeedSpecLinkURL, self).__init__()
-        self._isAdAssetFeedSpecLinkURL = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdAssetFeedSpecLinkURL, self).__init__()
+    self._isAdAssetFeedSpecLinkURL = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        adlabels = 'adlabels'
-        deeplink_url = 'deeplink_url'
-        display_url = 'display_url'
-        url_tags = 'url_tags'
-        website_url = 'website_url'
+  class Field(AbstractObject.Field):
+    adlabels = 'adlabels'
+    deeplink_url = 'deeplink_url'
+    display_url = 'display_url'
+    url_tags = 'url_tags'
+    website_url = 'website_url'
 
-    _field_types = {
-        'adlabels': 'list<AdAssetFeedSpecAssetLabel>',
-        'deeplink_url': 'string',
-        'display_url': 'string',
-        'url_tags': 'string',
-        'website_url': 'string',
-    }
+  _field_types = {
+    'adlabels': 'list<AdAssetFeedSpecAssetLabel>',
+    'deeplink_url': 'string',
+    'display_url': 'string',
+    'url_tags': 'string',
+    'website_url': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

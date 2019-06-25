@@ -29,53 +29,53 @@ pull request for this class.
 """
 
 class AdCampaignDeliveryEstimate(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCampaignDeliveryEstimate, self).__init__()
-        self._isAdCampaignDeliveryEstimate = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCampaignDeliveryEstimate, self).__init__()
+    self._isAdCampaignDeliveryEstimate = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        bid_estimate = 'bid_estimate'
-        daily_outcomes_curve = 'daily_outcomes_curve'
-        estimate_dau = 'estimate_dau'
-        estimate_mau = 'estimate_mau'
-        estimate_ready = 'estimate_ready'
+  class Field(AbstractObject.Field):
+    bid_estimate = 'bid_estimate'
+    daily_outcomes_curve = 'daily_outcomes_curve'
+    estimate_dau = 'estimate_dau'
+    estimate_mau = 'estimate_mau'
+    estimate_ready = 'estimate_ready'
 
-    class OptimizationGoal:
-        none = 'NONE'
-        app_installs = 'APP_INSTALLS'
-        brand_awareness = 'BRAND_AWARENESS'
-        ad_recall_lift = 'AD_RECALL_LIFT'
-        clicks = 'CLICKS'
-        engaged_users = 'ENGAGED_USERS'
-        event_responses = 'EVENT_RESPONSES'
-        impressions = 'IMPRESSIONS'
-        lead_generation = 'LEAD_GENERATION'
-        link_clicks = 'LINK_CLICKS'
-        offer_claims = 'OFFER_CLAIMS'
-        offsite_conversions = 'OFFSITE_CONVERSIONS'
-        page_engagement = 'PAGE_ENGAGEMENT'
-        page_likes = 'PAGE_LIKES'
-        post_engagement = 'POST_ENGAGEMENT'
-        reach = 'REACH'
-        social_impressions = 'SOCIAL_IMPRESSIONS'
-        video_views = 'VIDEO_VIEWS'
-        app_downloads = 'APP_DOWNLOADS'
-        landing_page_views = 'LANDING_PAGE_VIEWS'
+  class OptimizationGoal:
+    none = 'NONE'
+    app_installs = 'APP_INSTALLS'
+    brand_awareness = 'BRAND_AWARENESS'
+    ad_recall_lift = 'AD_RECALL_LIFT'
+    clicks = 'CLICKS'
+    engaged_users = 'ENGAGED_USERS'
+    event_responses = 'EVENT_RESPONSES'
+    impressions = 'IMPRESSIONS'
+    lead_generation = 'LEAD_GENERATION'
+    link_clicks = 'LINK_CLICKS'
+    offer_claims = 'OFFER_CLAIMS'
+    offsite_conversions = 'OFFSITE_CONVERSIONS'
+    page_engagement = 'PAGE_ENGAGEMENT'
+    page_likes = 'PAGE_LIKES'
+    post_engagement = 'POST_ENGAGEMENT'
+    reach = 'REACH'
+    social_impressions = 'SOCIAL_IMPRESSIONS'
+    video_views = 'VIDEO_VIEWS'
+    app_downloads = 'APP_DOWNLOADS'
+    landing_page_views = 'LANDING_PAGE_VIEWS'
 
-    _field_types = {
-        'bid_estimate': 'Object',
-        'daily_outcomes_curve': 'list<OutcomePredictionPoint>',
-        'estimate_dau': 'Object',
-        'estimate_mau': 'Object',
-        'estimate_ready': 'bool',
-    }
+  _field_types = {
+    'bid_estimate': 'Object',
+    'daily_outcomes_curve': 'list<OutcomePredictionPoint>',
+    'estimate_dau': 'Object',
+    'estimate_mau': 'Object',
+    'estimate_ready': 'bool',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['OptimizationGoal'] = AdCampaignDeliveryEstimate.OptimizationGoal.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['OptimizationGoal'] = AdCampaignDeliveryEstimate.OptimizationGoal.__dict__.values()
+    return field_enum_info

@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class IosAppLink(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(IosAppLink, self).__init__()
-        self._isIosAppLink = True
-        self._api = api
+  def __init__(self, api=None):
+    super(IosAppLink, self).__init__()
+    self._isIosAppLink = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        app_name = 'app_name'
-        app_store_id = 'app_store_id'
-        url = 'url'
+  class Field(AbstractObject.Field):
+    app_name = 'app_name'
+    app_store_id = 'app_store_id'
+    url = 'url'
 
-    _field_types = {
-        'app_name': 'string',
-        'app_store_id': 'string',
-        'url': 'string',
-    }
+  _field_types = {
+    'app_name': 'string',
+    'app_store_id': 'string',
+    'url': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

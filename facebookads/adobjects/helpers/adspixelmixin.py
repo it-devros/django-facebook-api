@@ -23,76 +23,76 @@ from facebookads.adobjects.adaccount import AdAccount
 
 class AdsPixelMixin:
 
-    def share_pixel_with_ad_account(self, business_id, account_id):
-        return self.get_api_assured().call(
-            'POST',
-            (self.get_id_assured(), 'shared_accounts'),
-            params={
-                'business': business_id,
-                'account_id': account_id,
-            },
-        )
+  def share_pixel_with_ad_account(self, business_id, account_id):
+    return self.get_api_assured().call(
+      'POST',
+      (self.get_id_assured(), 'shared_accounts'),
+      params={
+        'business': business_id,
+        'account_id': account_id,
+      },
+    )
 
-    def share_pixel_with_agency(self, business_id, agency_id):
-        """Associate ads pixel with another business"""
-        return self.get_api_assured().call(
-            'POST',
-            (self.get_id_assured(), 'shared_agencies'),
-            params={
-                'business': business_id,
-                'agency_id': agency_id,
-            },
-        )
+  def share_pixel_with_agency(self, business_id, agency_id):
+    """Associate ads pixel with another business"""
+    return self.get_api_assured().call(
+      'POST',
+      (self.get_id_assured(), 'shared_agencies'),
+      params={
+        'business': business_id,
+        'agency_id': agency_id,
+      },
+    )
 
-    def unshare_pixel_from_ad_account(self, business_id, account_id):
-        return self.get_api_assured().call(
-            'DELETE',
-            (self.get_id_assured(), 'shared_accounts'),
-            params={
-                'business': business_id,
-                'account_id': account_id,
-            },
-        )
+  def unshare_pixel_from_ad_account(self, business_id, account_id):
+    return self.get_api_assured().call(
+      'DELETE',
+      (self.get_id_assured(), 'shared_accounts'),
+      params={
+        'business': business_id,
+        'account_id': account_id,
+      },
+    )
 
-    def unshare_pixel_from_agency(self, business_id, agency_id):
-        return self.get_api_assured().call(
-            'DELETE',
-            (self.get_id_assured(), 'shared_agencies'),
-            params={
-                'business': business_id,
-                'agency_id': agency_id,
-            },
-        )
+  def unshare_pixel_from_agency(self, business_id, agency_id):
+    return self.get_api_assured().call(
+      'DELETE',
+      (self.get_id_assured(), 'shared_agencies'),
+      params={
+        'business': business_id,
+        'agency_id': agency_id,
+      },
+    )
 
-    def get_agencies(self):
-        """Returns a list of businesses associated with the ads pixel"""
-        response = self.get_api_assured().call(
-            'GET',
-            (self.get_id_assured(), 'shared_agencies'),
-        ).json()
+  def get_agencies(self):
+    """Returns a list of businesses associated with the ads pixel"""
+    response = self.get_api_assured().call(
+      'GET',
+      (self.get_id_assured(), 'shared_agencies'),
+    ).json()
 
-        ret_val = []
-        if response:
-            keys = response['data']
-            for item in keys:
-                search_obj = Business()
-                search_obj.update(item)
-                ret_val.append(search_obj)
-        return ret_val
+    ret_val = []
+    if response:
+      keys = response['data']
+      for item in keys:
+        search_obj = Business()
+        search_obj.update(item)
+        ret_val.append(search_obj)
+    return ret_val
 
-    def get_ad_accounts(self, business_id):
-        """Returns list of adaccounts associated with the ads pixel"""
-        response = self.get_api_assured().call(
-            'GET',
-            (self.get_id_assured(), 'shared_accounts'),
-            params={'business': business_id},
-        ).json()
+  def get_ad_accounts(self, business_id):
+    """Returns list of adaccounts associated with the ads pixel"""
+    response = self.get_api_assured().call(
+      'GET',
+      (self.get_id_assured(), 'shared_accounts'),
+      params={'business': business_id},
+    ).json()
 
-        ret_val = []
-        if response:
-            keys = response['data']
-            for item in keys:
-                search_obj = AdAccount()
-                search_obj.update(item)
-                ret_val.append(search_obj)
-        return ret_val
+    ret_val = []
+    if response:
+      keys = response['data']
+      for item in keys:
+        search_obj = AdAccount()
+        search_obj.update(item)
+        ret_val.append(search_obj)
+    return ret_val

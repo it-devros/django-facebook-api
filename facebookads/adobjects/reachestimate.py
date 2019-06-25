@@ -29,54 +29,54 @@ pull request for this class.
 """
 
 class ReachEstimate(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(ReachEstimate, self).__init__()
-        self._isReachEstimate = True
-        self._api = api
+  def __init__(self, api=None):
+    super(ReachEstimate, self).__init__()
+    self._isReachEstimate = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        estimate_ready = 'estimate_ready'
-        unsupported = 'unsupported'
-        users = 'users'
+  class Field(AbstractObject.Field):
+    estimate_ready = 'estimate_ready'
+    unsupported = 'unsupported'
+    users = 'users'
 
-    class OptimizeFor:
-        none = 'NONE'
-        app_installs = 'APP_INSTALLS'
-        brand_awareness = 'BRAND_AWARENESS'
-        ad_recall_lift = 'AD_RECALL_LIFT'
-        clicks = 'CLICKS'
-        engaged_users = 'ENGAGED_USERS'
-        event_responses = 'EVENT_RESPONSES'
-        impressions = 'IMPRESSIONS'
-        lead_generation = 'LEAD_GENERATION'
-        link_clicks = 'LINK_CLICKS'
-        offer_claims = 'OFFER_CLAIMS'
-        offsite_conversions = 'OFFSITE_CONVERSIONS'
-        page_engagement = 'PAGE_ENGAGEMENT'
-        page_likes = 'PAGE_LIKES'
-        post_engagement = 'POST_ENGAGEMENT'
-        reach = 'REACH'
-        social_impressions = 'SOCIAL_IMPRESSIONS'
-        video_views = 'VIDEO_VIEWS'
-        app_downloads = 'APP_DOWNLOADS'
-        landing_page_views = 'LANDING_PAGE_VIEWS'
+  class OptimizeFor:
+    none = 'NONE'
+    app_installs = 'APP_INSTALLS'
+    brand_awareness = 'BRAND_AWARENESS'
+    ad_recall_lift = 'AD_RECALL_LIFT'
+    clicks = 'CLICKS'
+    engaged_users = 'ENGAGED_USERS'
+    event_responses = 'EVENT_RESPONSES'
+    impressions = 'IMPRESSIONS'
+    lead_generation = 'LEAD_GENERATION'
+    link_clicks = 'LINK_CLICKS'
+    offer_claims = 'OFFER_CLAIMS'
+    offsite_conversions = 'OFFSITE_CONVERSIONS'
+    page_engagement = 'PAGE_ENGAGEMENT'
+    page_likes = 'PAGE_LIKES'
+    post_engagement = 'POST_ENGAGEMENT'
+    reach = 'REACH'
+    social_impressions = 'SOCIAL_IMPRESSIONS'
+    video_views = 'VIDEO_VIEWS'
+    app_downloads = 'APP_DOWNLOADS'
+    landing_page_views = 'LANDING_PAGE_VIEWS'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'reachestimate'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'reachestimate'
 
-    _field_types = {
-        'estimate_ready': 'bool',
-        'unsupported': 'bool',
-        'users': 'unsigned int',
-    }
+  _field_types = {
+    'estimate_ready': 'bool',
+    'unsupported': 'bool',
+    'users': 'unsigned int',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['OptimizeFor'] = ReachEstimate.OptimizeFor.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['OptimizeFor'] = ReachEstimate.OptimizeFor.__dict__.values()
+    return field_enum_info

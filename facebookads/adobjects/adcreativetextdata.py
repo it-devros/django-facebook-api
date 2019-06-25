@@ -29,22 +29,22 @@ pull request for this class.
 """
 
 class AdCreativeTextData(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativeTextData, self).__init__()
-        self._isAdCreativeTextData = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativeTextData, self).__init__()
+    self._isAdCreativeTextData = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        message = 'message'
+  class Field(AbstractObject.Field):
+    message = 'message'
 
-    _field_types = {
-        'message': 'string',
-    }
+  _field_types = {
+    'message': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

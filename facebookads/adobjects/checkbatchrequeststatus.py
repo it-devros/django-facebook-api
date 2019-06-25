@@ -29,28 +29,28 @@ pull request for this class.
 """
 
 class CheckBatchRequestStatus(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(CheckBatchRequestStatus, self).__init__()
-        self._isCheckBatchRequestStatus = True
-        self._api = api
+  def __init__(self, api=None):
+    super(CheckBatchRequestStatus, self).__init__()
+    self._isCheckBatchRequestStatus = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        errors = 'errors'
-        errors_total_count = 'errors_total_count'
-        handle = 'handle'
-        status = 'status'
+  class Field(AbstractObject.Field):
+    errors = 'errors'
+    errors_total_count = 'errors_total_count'
+    handle = 'handle'
+    status = 'status'
 
-    _field_types = {
-        'errors': 'list<Object>',
-        'errors_total_count': 'int',
-        'handle': 'string',
-        'status': 'string',
-    }
+  _field_types = {
+    'errors': 'list<Object>',
+    'errors_total_count': 'int',
+    'handle': 'string',
+    'status': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

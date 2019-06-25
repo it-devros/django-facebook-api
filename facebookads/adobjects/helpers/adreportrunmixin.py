@@ -20,16 +20,16 @@
 
 class AdReportRunMixin:
 
-    def get_result(self, params=None):
-        """
-        Gets the final result from an async job
-        Accepts params such as limit
-        """
-        return self.get_insights(params=params)
+  def get_result(self, params=None):
+    """
+    Gets the final result from an async job
+    Accepts params such as limit
+    """
+    return self.get_insights(params=params)
 
-    def __nonzero__(self):
-        return self[self.Field.async_percent_completion] == 100
+  def __nonzero__(self):
+    return self[self.Field.async_percent_completion] == 100
 
-    def _setitem_trigger(self, key, value):
-        if key == 'report_run_id':
-            self._data['id'] = self['report_run_id']
+  def _setitem_trigger(self, key, value):
+    if key == 'report_run_id':
+      self._data['id'] = self['report_run_id']

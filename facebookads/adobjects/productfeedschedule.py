@@ -29,55 +29,55 @@ pull request for this class.
 """
 
 class ProductFeedSchedule(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(ProductFeedSchedule, self).__init__()
-        self._isProductFeedSchedule = True
-        self._api = api
+  def __init__(self, api=None):
+    super(ProductFeedSchedule, self).__init__()
+    self._isProductFeedSchedule = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        day_of_month = 'day_of_month'
-        day_of_week = 'day_of_week'
-        hour = 'hour'
-        interval = 'interval'
-        interval_count = 'interval_count'
-        minute = 'minute'
-        timezone = 'timezone'
-        url = 'url'
-        username = 'username'
+  class Field(AbstractObject.Field):
+    day_of_month = 'day_of_month'
+    day_of_week = 'day_of_week'
+    hour = 'hour'
+    interval = 'interval'
+    interval_count = 'interval_count'
+    minute = 'minute'
+    timezone = 'timezone'
+    url = 'url'
+    username = 'username'
 
-    class DayOfWeek:
-        sunday = 'SUNDAY'
-        monday = 'MONDAY'
-        tuesday = 'TUESDAY'
-        wednesday = 'WEDNESDAY'
-        thursday = 'THURSDAY'
-        friday = 'FRIDAY'
-        saturday = 'SATURDAY'
+  class DayOfWeek:
+    sunday = 'SUNDAY'
+    monday = 'MONDAY'
+    tuesday = 'TUESDAY'
+    wednesday = 'WEDNESDAY'
+    thursday = 'THURSDAY'
+    friday = 'FRIDAY'
+    saturday = 'SATURDAY'
 
-    class Interval:
-        hourly = 'HOURLY'
-        daily = 'DAILY'
-        weekly = 'WEEKLY'
-        monthly = 'MONTHLY'
+  class Interval:
+    hourly = 'HOURLY'
+    daily = 'DAILY'
+    weekly = 'WEEKLY'
+    monthly = 'MONTHLY'
 
-    _field_types = {
-        'day_of_month': 'unsigned int',
-        'day_of_week': 'DayOfWeek',
-        'hour': 'unsigned int',
-        'interval': 'Interval',
-        'interval_count': 'unsigned int',
-        'minute': 'unsigned int',
-        'timezone': 'string',
-        'url': 'string',
-        'username': 'string',
-    }
+  _field_types = {
+    'day_of_month': 'unsigned int',
+    'day_of_week': 'DayOfWeek',
+    'hour': 'unsigned int',
+    'interval': 'Interval',
+    'interval_count': 'unsigned int',
+    'minute': 'unsigned int',
+    'timezone': 'string',
+    'url': 'string',
+    'username': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['DayOfWeek'] = ProductFeedSchedule.DayOfWeek.__dict__.values()
-        field_enum_info['Interval'] = ProductFeedSchedule.Interval.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['DayOfWeek'] = ProductFeedSchedule.DayOfWeek.__dict__.values()
+    field_enum_info['Interval'] = ProductFeedSchedule.Interval.__dict__.values()
+    return field_enum_info

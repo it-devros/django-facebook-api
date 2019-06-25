@@ -29,28 +29,28 @@ pull request for this class.
 """
 
 class FundingSourceDetailsCoupon(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(FundingSourceDetailsCoupon, self).__init__()
-        self._isFundingSourceDetailsCoupon = True
-        self._api = api
+  def __init__(self, api=None):
+    super(FundingSourceDetailsCoupon, self).__init__()
+    self._isFundingSourceDetailsCoupon = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        amount = 'amount'
-        currency = 'currency'
-        display_amount = 'display_amount'
-        expiration = 'expiration'
+  class Field(AbstractObject.Field):
+    amount = 'amount'
+    currency = 'currency'
+    display_amount = 'display_amount'
+    expiration = 'expiration'
 
-    _field_types = {
-        'amount': 'int',
-        'currency': 'string',
-        'display_amount': 'string',
-        'expiration': 'datetime',
-    }
+  _field_types = {
+    'amount': 'int',
+    'currency': 'string',
+    'display_amount': 'string',
+    'expiration': 'datetime',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

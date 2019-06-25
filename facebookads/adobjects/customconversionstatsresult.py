@@ -29,37 +29,37 @@ pull request for this class.
 """
 
 class CustomConversionStatsResult(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(CustomConversionStatsResult, self).__init__()
-        self._isCustomConversionStatsResult = True
-        self._api = api
+  def __init__(self, api=None):
+    super(CustomConversionStatsResult, self).__init__()
+    self._isCustomConversionStatsResult = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        aggregation = 'aggregation'
-        data = 'data'
-        timestamp = 'timestamp'
+  class Field(AbstractObject.Field):
+    aggregation = 'aggregation'
+    data = 'data'
+    timestamp = 'timestamp'
 
-    class Aggregation:
-        count = 'count'
-        device_type = 'device_type'
-        host = 'host'
-        pixel_fire = 'pixel_fire'
-        unmatched_count = 'unmatched_count'
-        unmatched_usd_amount = 'unmatched_usd_amount'
-        url = 'url'
-        usd_amount = 'usd_amount'
+  class Aggregation:
+    count = 'count'
+    device_type = 'device_type'
+    host = 'host'
+    pixel_fire = 'pixel_fire'
+    unmatched_count = 'unmatched_count'
+    unmatched_usd_amount = 'unmatched_usd_amount'
+    url = 'url'
+    usd_amount = 'usd_amount'
 
-    _field_types = {
-        'aggregation': 'Aggregation',
-        'data': 'list<Object>',
-        'timestamp': 'datetime',
-    }
+  _field_types = {
+    'aggregation': 'Aggregation',
+    'data': 'list<Object>',
+    'timestamp': 'datetime',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['Aggregation'] = CustomConversionStatsResult.Aggregation.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['Aggregation'] = CustomConversionStatsResult.Aggregation.__dict__.values()
+    return field_enum_info

@@ -29,30 +29,30 @@ pull request for this class.
 """
 
 class TargetingGeoLocationZip(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(TargetingGeoLocationZip, self).__init__()
-        self._isTargetingGeoLocationZip = True
-        self._api = api
+  def __init__(self, api=None):
+    super(TargetingGeoLocationZip, self).__init__()
+    self._isTargetingGeoLocationZip = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        country = 'country'
-        key = 'key'
-        name = 'name'
-        primary_city_id = 'primary_city_id'
-        region_id = 'region_id'
+  class Field(AbstractObject.Field):
+    country = 'country'
+    key = 'key'
+    name = 'name'
+    primary_city_id = 'primary_city_id'
+    region_id = 'region_id'
 
-    _field_types = {
-        'country': 'string',
-        'key': 'string',
-        'name': 'string',
-        'primary_city_id': 'int',
-        'region_id': 'int',
-    }
+  _field_types = {
+    'country': 'string',
+    'key': 'string',
+    'name': 'string',
+    'primary_city_id': 'int',
+    'region_id': 'int',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

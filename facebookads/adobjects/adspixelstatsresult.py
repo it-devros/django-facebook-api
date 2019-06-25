@@ -29,42 +29,42 @@ pull request for this class.
 """
 
 class AdsPixelStatsResult(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdsPixelStatsResult, self).__init__()
-        self._isAdsPixelStatsResult = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdsPixelStatsResult, self).__init__()
+    self._isAdsPixelStatsResult = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        aggregation = 'aggregation'
-        data = 'data'
-        timestamp = 'timestamp'
+  class Field(AbstractObject.Field):
+    aggregation = 'aggregation'
+    data = 'data'
+    timestamp = 'timestamp'
 
-    class Aggregation:
-        browser_type = 'browser_type'
-        custom_data_field = 'custom_data_field'
-        device_os = 'device_os'
-        device_type = 'device_type'
-        event = 'event'
-        host = 'host'
-        pixel_fire = 'pixel_fire'
-        url = 'url'
+  class Aggregation:
+    browser_type = 'browser_type'
+    custom_data_field = 'custom_data_field'
+    device_os = 'device_os'
+    device_type = 'device_type'
+    event = 'event'
+    host = 'host'
+    pixel_fire = 'pixel_fire'
+    url = 'url'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'stats'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'stats'
 
-    _field_types = {
-        'aggregation': 'Aggregation',
-        'data': 'list<AdsPixelStats>',
-        'timestamp': 'datetime',
-    }
+  _field_types = {
+    'aggregation': 'Aggregation',
+    'data': 'list<AdsPixelStats>',
+    'timestamp': 'datetime',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['Aggregation'] = AdsPixelStatsResult.Aggregation.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['Aggregation'] = AdsPixelStatsResult.Aggregation.__dict__.values()
+    return field_enum_info

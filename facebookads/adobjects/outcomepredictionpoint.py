@@ -29,28 +29,28 @@ pull request for this class.
 """
 
 class OutcomePredictionPoint(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(OutcomePredictionPoint, self).__init__()
-        self._isOutcomePredictionPoint = True
-        self._api = api
+  def __init__(self, api=None):
+    super(OutcomePredictionPoint, self).__init__()
+    self._isOutcomePredictionPoint = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        actions = 'actions'
-        impressions = 'impressions'
-        reach = 'reach'
-        spend = 'spend'
+  class Field(AbstractObject.Field):
+    actions = 'actions'
+    impressions = 'impressions'
+    reach = 'reach'
+    spend = 'spend'
 
-    _field_types = {
-        'actions': 'float',
-        'impressions': 'float',
-        'reach': 'float',
-        'spend': 'int',
-    }
+  _field_types = {
+    'actions': 'float',
+    'impressions': 'float',
+    'reach': 'float',
+    'spend': 'int',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

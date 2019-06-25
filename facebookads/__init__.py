@@ -23,7 +23,7 @@ from facebookads.api import FacebookAdsApi
 
 __version__ = '2.11.2'
 __all__ = [
-    'session',
-    'objects',
-    'api',
+  'session',
+  'objects',
+  'api',
 ]

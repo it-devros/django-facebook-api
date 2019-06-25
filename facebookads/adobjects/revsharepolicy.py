@@ -29,24 +29,24 @@ pull request for this class.
 """
 
 class RevSharePolicy(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(RevSharePolicy, self).__init__()
-        self._isRevSharePolicy = True
-        self._api = api
+  def __init__(self, api=None):
+    super(RevSharePolicy, self).__init__()
+    self._isRevSharePolicy = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        policy_id = 'policy_id'
-        policy_name = 'policy_name'
+  class Field(AbstractObject.Field):
+    policy_id = 'policy_id'
+    policy_name = 'policy_name'
 
-    _field_types = {
-        'policy_id': 'string',
-        'policy_name': 'string',
-    }
+  _field_types = {
+    'policy_id': 'string',
+    'policy_name': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

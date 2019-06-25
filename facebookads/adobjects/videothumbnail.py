@@ -33,38 +33,38 @@ pull request for this class.
 """
 
 class VideoThumbnail(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isVideoThumbnail = True
-        super(VideoThumbnail, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isVideoThumbnail = True
+    super(VideoThumbnail, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        height = 'height'
-        id = 'id'
-        is_preferred = 'is_preferred'
-        name = 'name'
-        scale = 'scale'
-        uri = 'uri'
-        width = 'width'
+  class Field(AbstractObject.Field):
+    height = 'height'
+    id = 'id'
+    is_preferred = 'is_preferred'
+    name = 'name'
+    scale = 'scale'
+    uri = 'uri'
+    width = 'width'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'thumbnails'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'thumbnails'
 
-    _field_types = {
-        'height': 'unsigned int',
-        'id': 'string',
-        'is_preferred': 'bool',
-        'name': 'string',
-        'scale': 'float',
-        'uri': 'string',
-        'width': 'unsigned int',
-    }
+  _field_types = {
+    'height': 'unsigned int',
+    'id': 'string',
+    'is_preferred': 'bool',
+    'name': 'string',
+    'scale': 'float',
+    'uri': 'string',
+    'width': 'unsigned int',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

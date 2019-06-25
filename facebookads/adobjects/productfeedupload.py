@@ -33,96 +33,96 @@ pull request for this class.
 """
 
 class ProductFeedUpload(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isProductFeedUpload = True
-        super(ProductFeedUpload, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isProductFeedUpload = True
+    super(ProductFeedUpload, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        end_time = 'end_time'
-        id = 'id'
-        input_method = 'input_method'
-        start_time = 'start_time'
-        url = 'url'
+  class Field(AbstractObject.Field):
+    end_time = 'end_time'
+    id = 'id'
+    input_method = 'input_method'
+    start_time = 'start_time'
+    url = 'url'
 
-    class InputMethod:
-        manual_upload = 'Manual Upload'
-        server_fetch = 'Server Fetch'
-        reupload_last_file = 'Reupload Last File'
-        user_initiated_server_fetch = 'User initiated server fetch'
+  class InputMethod:
+    manual_upload = 'Manual Upload'
+    server_fetch = 'Server Fetch'
+    reupload_last_file = 'Reupload Last File'
+    user_initiated_server_fetch = 'User initiated server fetch'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'uploads'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'uploads'
 
-    def api_get(self, fields=None, params=None, batch=None, pending=False):
-        param_types = {
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='GET',
-            endpoint='/',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=ProductFeedUpload,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def get_errors(self, fields=None, params=None, batch=None, pending=False):
-        from facebookads.adobjects.productfeeduploaderror import ProductFeedUploadError
-        param_types = {
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='GET',
-            endpoint='/errors',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=ProductFeedUploadError,
-            api_type='EDGE',
-            response_parser=ObjectParser(target_class=ProductFeedUploadError, api=self._api),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    _field_types = {
-        'end_time': 'datetime',
-        'id': 'string',
-        'input_method': 'InputMethod',
-        'start_time': 'datetime',
-        'url': 'string',
+  def api_get(self, fields=None, params=None, batch=None, pending=False):
+    param_types = {
     }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='GET',
+      endpoint='/',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=ProductFeedUpload,
+      api_type='NODE',
+      response_parser=ObjectParser(reuse_object=self),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['InputMethod'] = ProductFeedUpload.InputMethod.__dict__.values()
-        return field_enum_info
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  def get_errors(self, fields=None, params=None, batch=None, pending=False):
+    from facebookads.adobjects.productfeeduploaderror import ProductFeedUploadError
+    param_types = {
+    }
+    enums = {
+    }
+    request = FacebookRequest(
+      node_id=self['id'],
+      method='GET',
+      endpoint='/errors',
+      api=self._api,
+      param_checker=TypeChecker(param_types, enums),
+      target_class=ProductFeedUploadError,
+      api_type='EDGE',
+      response_parser=ObjectParser(target_class=ProductFeedUploadError, api=self._api),
+    )
+    request.add_params(params)
+    request.add_fields(fields)
+
+    if batch is not None:
+      request.add_to_batch(batch)
+      return request
+    elif pending:
+      return request
+    else:
+      self.assure_call()
+      return request.execute()
+
+  _field_types = {
+    'end_time': 'datetime',
+    'id': 'string',
+    'input_method': 'InputMethod',
+    'start_time': 'datetime',
+    'url': 'string',
+  }
+
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['InputMethod'] = ProductFeedUpload.InputMethod.__dict__.values()
+    return field_enum_info

@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class ProductVariant(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(ProductVariant, self).__init__()
-        self._isProductVariant = True
-        self._api = api
+  def __init__(self, api=None):
+    super(ProductVariant, self).__init__()
+    self._isProductVariant = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        label = 'label'
-        options = 'options'
-        product_field = 'product_field'
+  class Field(AbstractObject.Field):
+    label = 'label'
+    options = 'options'
+    product_field = 'product_field'
 
-    _field_types = {
-        'label': 'string',
-        'options': 'list<string>',
-        'product_field': 'string',
-    }
+  _field_types = {
+    'label': 'string',
+    'options': 'list<string>',
+    'product_field': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

@@ -33,29 +33,29 @@ pull request for this class.
 """
 
 class LeadGenQualifier(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isLeadGenQualifier = True
-        super(LeadGenQualifier, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isLeadGenQualifier = True
+    super(LeadGenQualifier, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        category = 'category'
-        field_key = 'field_key'
-        id = 'id'
-        label = 'label'
-        question = 'question'
+  class Field(AbstractObject.Field):
+    category = 'category'
+    field_key = 'field_key'
+    id = 'id'
+    label = 'label'
+    question = 'question'
 
-    _field_types = {
-        'category': 'string',
-        'field_key': 'string',
-        'id': 'string',
-        'label': 'string',
-        'question': 'string',
-    }
+  _field_types = {
+    'category': 'string',
+    'field_key': 'string',
+    'id': 'string',
+    'label': 'string',
+    'question': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

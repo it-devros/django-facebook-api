@@ -29,35 +29,35 @@ pull request for this class.
 """
 
 class AdRuleExecutionSpec(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdRuleExecutionSpec, self).__init__()
-        self._isAdRuleExecutionSpec = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdRuleExecutionSpec, self).__init__()
+    self._isAdRuleExecutionSpec = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        execution_options = 'execution_options'
-        execution_type = 'execution_type'
+  class Field(AbstractObject.Field):
+    execution_options = 'execution_options'
+    execution_type = 'execution_type'
 
-    class ExecutionType:
-        ping_endpoint = 'PING_ENDPOINT'
-        notification = 'NOTIFICATION'
-        pause = 'PAUSE'
-        rebalance_budget = 'REBALANCE_BUDGET'
-        change_budget = 'CHANGE_BUDGET'
-        change_bid = 'CHANGE_BID'
-        rotate = 'ROTATE'
-        unpause = 'UNPAUSE'
+  class ExecutionType:
+    ping_endpoint = 'PING_ENDPOINT'
+    notification = 'NOTIFICATION'
+    pause = 'PAUSE'
+    rebalance_budget = 'REBALANCE_BUDGET'
+    change_budget = 'CHANGE_BUDGET'
+    change_bid = 'CHANGE_BID'
+    rotate = 'ROTATE'
+    unpause = 'UNPAUSE'
 
-    _field_types = {
-        'execution_options': 'list<AdRuleExecutionOptions>',
-        'execution_type': 'ExecutionType',
-    }
+  _field_types = {
+    'execution_options': 'list<AdRuleExecutionOptions>',
+    'execution_type': 'ExecutionType',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['ExecutionType'] = AdRuleExecutionSpec.ExecutionType.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['ExecutionType'] = AdRuleExecutionSpec.ExecutionType.__dict__.values()
+    return field_enum_info

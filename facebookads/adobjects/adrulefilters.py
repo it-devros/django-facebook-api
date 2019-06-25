@@ -29,42 +29,42 @@ pull request for this class.
 """
 
 class AdRuleFilters(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdRuleFilters, self).__init__()
-        self._isAdRuleFilters = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdRuleFilters, self).__init__()
+    self._isAdRuleFilters = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        field = 'field'
-        operator = 'operator'
-        value = 'value'
+  class Field(AbstractObject.Field):
+    field = 'field'
+    operator = 'operator'
+    value = 'value'
 
-    class Operator:
-        greater_than = 'GREATER_THAN'
-        less_than = 'LESS_THAN'
-        equal = 'EQUAL'
-        not_equal = 'NOT_EQUAL'
-        in_range = 'IN_RANGE'
-        not_in_range = 'NOT_IN_RANGE'
-        in = 'IN'
-        not_in = 'NOT_IN'
-        contain = 'CONTAIN'
-        not_contain = 'NOT_CONTAIN'
-        any = 'ANY'
-        all = 'ALL'
-        none = 'NONE'
+  class Operator:
+    greater_than = 'GREATER_THAN'
+    less_than = 'LESS_THAN'
+    equal = 'EQUAL'
+    not_equal = 'NOT_EQUAL'
+    in_range = 'IN_RANGE'
+    not_in_range = 'NOT_IN_RANGE'
+    in = 'IN'
+    not_in = 'NOT_IN'
+    contain = 'CONTAIN'
+    not_contain = 'NOT_CONTAIN'
+    any = 'ANY'
+    all = 'ALL'
+    none = 'NONE'
 
-    _field_types = {
-        'field': 'string',
-        'operator': 'Operator',
-        'value': 'Object',
-    }
+  _field_types = {
+    'field': 'string',
+    'operator': 'Operator',
+    'value': 'Object',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['Operator'] = AdRuleFilters.Operator.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['Operator'] = AdRuleFilters.Operator.__dict__.values()
+    return field_enum_info

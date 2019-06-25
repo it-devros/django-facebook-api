@@ -33,30 +33,30 @@ pull request for this class.
 """
 
 class TargetingSentenceLine(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isTargetingSentenceLine = True
-        super(TargetingSentenceLine, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isTargetingSentenceLine = True
+    super(TargetingSentenceLine, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        id = 'id'
-        params = 'params'
-        targetingsentencelines = 'targetingsentencelines'
+  class Field(AbstractObject.Field):
+    id = 'id'
+    params = 'params'
+    targetingsentencelines = 'targetingsentencelines'
 
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'targetingsentencelines'
+  # @deprecated get_endpoint function is deprecated
+  @classmethod
+  def get_endpoint(cls):
+    return 'targetingsentencelines'
 
-    _field_types = {
-        'id': 'string',
-        'params': 'Targeting',
-        'targetingsentencelines': 'list',
-    }
+  _field_types = {
+    'id': 'string',
+    'params': 'Targeting',
+    'targetingsentencelines': 'list',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

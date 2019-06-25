@@ -7,24 +7,24 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('dashboard', '0005_auto_20180107_1644'),
-    ]
+  dependencies = [
+    ('dashboard', '0005_auto_20180107_1644'),
+  ]
 
-    operations = [
-        migrations.AlterField(
-            model_name='performance',
-            name='cpc',
-            field=models.FloatField(),
-        ),
-        migrations.AlterField(
-            model_name='performance',
-            name='cpm',
-            field=models.FloatField(),
-        ),
-        migrations.AlterField(
-            model_name='performance',
-            name='ctr',
-            field=models.FloatField(),
-        ),
-    ]
+  operations = [
+    migrations.AlterField(
+      model_name='performance',
+      name='cpc',
+      field=models.FloatField(),
+    ),
+    migrations.AlterField(
+      model_name='performance',
+      name='cpm',
+      field=models.FloatField(),
+    ),
+    migrations.AlterField(
+      model_name='performance',
+      name='ctr',
+      field=models.FloatField(),
+    ),
+  ]

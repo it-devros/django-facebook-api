@@ -29,30 +29,30 @@ pull request for this class.
 """
 
 class AdAssetFeedSpecVideo(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdAssetFeedSpecVideo, self).__init__()
-        self._isAdAssetFeedSpecVideo = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdAssetFeedSpecVideo, self).__init__()
+    self._isAdAssetFeedSpecVideo = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        adlabels = 'adlabels'
-        caption_ids = 'caption_ids'
-        thumbnail_url = 'thumbnail_url'
-        url_tags = 'url_tags'
-        video_id = 'video_id'
+  class Field(AbstractObject.Field):
+    adlabels = 'adlabels'
+    caption_ids = 'caption_ids'
+    thumbnail_url = 'thumbnail_url'
+    url_tags = 'url_tags'
+    video_id = 'video_id'
 
-    _field_types = {
-        'adlabels': 'list<AdAssetFeedSpecAssetLabel>',
-        'caption_ids': 'list<string>',
-        'thumbnail_url': 'string',
-        'url_tags': 'string',
-        'video_id': 'string',
-    }
+  _field_types = {
+    'adlabels': 'list<AdAssetFeedSpecAssetLabel>',
+    'caption_ids': 'list<string>',
+    'thumbnail_url': 'string',
+    'url_tags': 'string',
+    'video_id': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

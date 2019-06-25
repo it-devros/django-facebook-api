@@ -7,19 +7,19 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('dashboard', '0004_auto_20180107_1640'),
-    ]
+  dependencies = [
+    ('dashboard', '0004_auto_20180107_1640'),
+  ]
 
-    operations = [
-        migrations.AddField(
-            model_name='performance',
-            name='conv2',
-            field=models.IntegerField(blank=True, null=True),
-        ),
-        migrations.AddField(
-            model_name='performance',
-            name='conv3',
-            field=models.IntegerField(blank=True, null=True),
-        ),
-    ]
+  operations = [
+    migrations.AddField(
+      model_name='performance',
+      name='conv2',
+      field=models.IntegerField(blank=True, null=True),
+    ),
+    migrations.AddField(
+      model_name='performance',
+      name='conv3',
+      field=models.IntegerField(blank=True, null=True),
+    ),
+  ]

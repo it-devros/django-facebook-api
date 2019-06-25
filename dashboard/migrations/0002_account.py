@@ -9,19 +9,19 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('dashboard', '0001_initial'),
-    ]
+  dependencies = [
+    migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+    ('dashboard', '0001_initial'),
+  ]
 
-    operations = [
-        migrations.CreateModel(
-            name='Account',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('company', models.CharField(blank=True, max_length=250)),
-                ('website', models.CharField(blank=True, max_length=30)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
-    ]
+  operations = [
+    migrations.CreateModel(
+      name='Account',
+      fields=[
+        ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+        ('company', models.CharField(blank=True, max_length=250)),
+        ('website', models.CharField(blank=True, max_length=30)),
+        ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+      ],
+    ),
+  ]

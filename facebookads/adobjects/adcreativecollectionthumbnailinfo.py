@@ -29,26 +29,26 @@ pull request for this class.
 """
 
 class AdCreativeCollectionThumbnailInfo(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdCreativeCollectionThumbnailInfo, self).__init__()
-        self._isAdCreativeCollectionThumbnailInfo = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdCreativeCollectionThumbnailInfo, self).__init__()
+    self._isAdCreativeCollectionThumbnailInfo = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        element_child_index = 'element_child_index'
-        element_crops = 'element_crops'
-        element_id = 'element_id'
+  class Field(AbstractObject.Field):
+    element_child_index = 'element_child_index'
+    element_crops = 'element_crops'
+    element_id = 'element_id'
 
-    _field_types = {
-        'element_child_index': 'int',
-        'element_crops': 'AdsImageCrops',
-        'element_id': 'string',
-    }
+  _field_types = {
+    'element_child_index': 'int',
+    'element_crops': 'AdsImageCrops',
+    'element_id': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info

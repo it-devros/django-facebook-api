@@ -29,46 +29,46 @@ pull request for this class.
 """
 
 class AdRecommendation(
-    AbstractObject,
+  AbstractObject,
 ):
 
-    def __init__(self, api=None):
-        super(AdRecommendation, self).__init__()
-        self._isAdRecommendation = True
-        self._api = api
+  def __init__(self, api=None):
+    super(AdRecommendation, self).__init__()
+    self._isAdRecommendation = True
+    self._api = api
 
-    class Field(AbstractObject.Field):
-        blame_field = 'blame_field'
-        code = 'code'
-        confidence = 'confidence'
-        importance = 'importance'
-        message = 'message'
-        recommendation_data = 'recommendation_data'
-        title = 'title'
+  class Field(AbstractObject.Field):
+    blame_field = 'blame_field'
+    code = 'code'
+    confidence = 'confidence'
+    importance = 'importance'
+    message = 'message'
+    recommendation_data = 'recommendation_data'
+    title = 'title'
 
-    class Confidence:
-        high = 'HIGH'
-        medium = 'MEDIUM'
-        low = 'LOW'
+  class Confidence:
+    high = 'HIGH'
+    medium = 'MEDIUM'
+    low = 'LOW'
 
-    class Importance:
-        high = 'HIGH'
-        medium = 'MEDIUM'
-        low = 'LOW'
+  class Importance:
+    high = 'HIGH'
+    medium = 'MEDIUM'
+    low = 'LOW'
 
-    _field_types = {
-        'blame_field': 'string',
-        'code': 'int',
-        'confidence': 'Confidence',
-        'importance': 'Importance',
-        'message': 'string',
-        'recommendation_data': 'AdRecommendationData',
-        'title': 'string',
-    }
+  _field_types = {
+    'blame_field': 'string',
+    'code': 'int',
+    'confidence': 'Confidence',
+    'importance': 'Importance',
+    'message': 'string',
+    'recommendation_data': 'AdRecommendationData',
+    'title': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        field_enum_info['Confidence'] = AdRecommendation.Confidence.__dict__.values()
-        field_enum_info['Importance'] = AdRecommendation.Importance.__dict__.values()
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    field_enum_info['Confidence'] = AdRecommendation.Confidence.__dict__.values()
+    field_enum_info['Importance'] = AdRecommendation.Importance.__dict__.values()
+    return field_enum_info

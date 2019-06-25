@@ -33,23 +33,23 @@ pull request for this class.
 """
 
 class AdAssetFeedSpecAssetLabel(
-    AbstractCrudObject,
+  AbstractCrudObject,
 ):
 
-    def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isAdAssetFeedSpecAssetLabel = True
-        super(AdAssetFeedSpecAssetLabel, self).__init__(fbid, parent_id, api)
+  def __init__(self, fbid=None, parent_id=None, api=None):
+    self._isAdAssetFeedSpecAssetLabel = True
+    super(AdAssetFeedSpecAssetLabel, self).__init__(fbid, parent_id, api)
 
-    class Field(AbstractObject.Field):
-        id = 'id'
-        name = 'name'
+  class Field(AbstractObject.Field):
+    id = 'id'
+    name = 'name'
 
-    _field_types = {
-        'id': 'string',
-        'name': 'string',
-    }
+  _field_types = {
+    'id': 'string',
+    'name': 'string',
+  }
 
-    @classmethod
-    def _get_field_enum_info(cls):
-        field_enum_info = {}
-        return field_enum_info
+  @classmethod
+  def _get_field_enum_info(cls):
+    field_enum_info = {}
+    return field_enum_info
